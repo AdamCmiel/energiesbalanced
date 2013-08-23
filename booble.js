@@ -48,8 +48,6 @@ app.get('/auth/facebook/callback',
   passport.authenticate('facebook', { 
   	successRedirect: '/',
     failureRedirect: '/login' 
-  }, function(req, resp){
-  	   console.log("auth successful");
   }));
 
 app.use(express.logger());
