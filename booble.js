@@ -19,7 +19,7 @@ passport.use(new FacebookStrategy({
     callbackURL: "http://energiesbalanced.herokuapp.com/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, done) {
-    done(null, user);
+    done(null, profile);
   }
 ));
 
@@ -32,7 +32,7 @@ passport.deserializeUser(function(user, done) {
 });
 
 app.get('/session', function(req, response){
-  response.send({session: req.session.user});
+  response.send({session: req.session});
 });
 
 // Redirect the user to Facebook for authentication.  When complete,
