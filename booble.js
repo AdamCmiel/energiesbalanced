@@ -3,6 +3,9 @@ var app = express();
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 
+app.use(express.cookieParser());
+app.use(express.session({secret: process.env.SUPER_SECRET_SESSIONS_KEY}));
+
 passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_APP_ID,
     clientSecret: process.env.FACEBOOK_APP_SECRET,
