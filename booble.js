@@ -19,10 +19,7 @@ passport.use(new FacebookStrategy({
     callbackURL: "http://energiesbalanced.herokuapp.com/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, done) {
-    console.log(accessToken);
-    console.log(refreshToken);
-    console.log(profile);
-    console.log(done);
+    done(null, user);
   }
 ));
 
@@ -52,7 +49,7 @@ app.get('/auth/facebook/callback',
   	successRedirect: '/',
     failureRedirect: '/login' 
   }, function(req, resp){
-  	   req.session
+  	   console.log("auth successful");
   }));
 
 app.use(express.logger());
