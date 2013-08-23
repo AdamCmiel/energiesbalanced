@@ -50,6 +50,11 @@ app.get('/auth/facebook/callback',
     failureRedirect: '/login' 
   }));
 
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
+
 app.use(express.logger());
 app.use(express.static(__dirname + '/public'));
 var port = process.env.PORT || 5000;
