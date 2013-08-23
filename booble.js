@@ -28,7 +28,7 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(user, done) {
-    done(err, user);
+    done(null, user);
 });
 
 app.get('/session', function(req, response){
