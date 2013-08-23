@@ -2,6 +2,8 @@ var express = require("express");
 var app = express();
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
+var mongoose = require('/mongodb.js');
+
 
 app.configure(function() {
   app.use(express.static('public'));
