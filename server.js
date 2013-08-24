@@ -9,7 +9,7 @@ var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var mongoose = require('mongoose');
 
-
+var facelog = require('/config/fblogin.js');
 
 var app = express();
 
@@ -25,6 +25,12 @@ app.configure(function() {
   app.use(passport.session());
   app.use(app.router);
 });
+
+//login fb
+facelog.login();
+
+//logout fb
+facelob.logout();
 
 
 
