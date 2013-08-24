@@ -7,6 +7,7 @@ var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var mongoose = require('mongoose');
 var pkg = require('../package.json');
+var app = require('../server.js');
 
 
 passport.use(new FacebookStrategy({
