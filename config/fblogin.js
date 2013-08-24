@@ -20,6 +20,10 @@ passport.use(new FacebookStrategy({
   }
 ));
 
+  app.use(passport.initialize());
+  app.use(passport.session());
+  app.use(app.router);
+
 passport.serializeUser(function(user, done) {
   done(null, user);
 });
