@@ -1,7 +1,7 @@
 {
   "name":     "EnergiesBalanced",
   "version":  "0.0.1",
-  "private":  false,
+  "private":  "false",
   "author":   "Adam Cmiel",
   "repository": {
     "type":   "git",
