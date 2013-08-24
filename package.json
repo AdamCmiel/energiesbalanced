@@ -12,12 +12,12 @@
     "npm":    "1.2.x"
   },
   "dependencies": {
-    "express":   "latest",
-    "jade":      "latest",
-    "mongoose":  "latest",
-    "passport":  "latest",
-    "passport-facebook":"latest",
-    "underscore":"latest"
+    "express":   "",
+    "jade":      "",
+    "mongoose":  "",
+    "passport":  "",
+    "passport-facebook":"",
+    "underscore":""
   },
   
 }
