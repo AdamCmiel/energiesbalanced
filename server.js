@@ -8,13 +8,15 @@ var fs = require('fs');
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var mongoose = require('mongoose');
+var Cat = require('./config/cat.js');
 
-var facelog = require('/config/fblogin.js');
+//connect to the database
+mongoose.connect(process.env.MONGOHQ_URL);
+
+//var facelog = require('/config/fblogin.js');
+console.log(process.env.SUPER_SECRET_SESSIONS_KEY);
 
 var app = express();
-
-//expose app
-exports = module.exports = app;
 
 app.configure(function() {
   app.use(express.static('public'));
@@ -26,13 +28,6 @@ app.configure(function() {
   app.use(app.router);
 });
 
-//login fb
-facelog.login();
-
-//logout fb
-facelob.logout();
-
-
 
 app.use(express.logger());
 app.use(express.static(__dirname + '/public'));
@@ -40,3 +35,9 @@ var port = process.env.PORT || 5000;
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
+
+app.post('/cats', Cat.create);
+
+
+//expose app
+exports = module.exports = app;
