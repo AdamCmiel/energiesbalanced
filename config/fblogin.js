@@ -2,6 +2,7 @@
 var express = require("express");
 
 //required libraries
+var http = require('http');
 var fs = require('fs');
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
