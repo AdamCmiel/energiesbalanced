@@ -9,8 +9,6 @@ var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var mongoose = require('mongoose');
 
-//Bootstrap db connection
-mongoose.connect(config.db);
 
 
 var app = express();
