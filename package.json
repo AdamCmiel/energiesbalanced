@@ -15,8 +15,5 @@
     "type":   "git",
     "url":    "https://github.com/adamlcmiel/energiesbalanced"
   },
-  "engines": {
-    "node":   "0.10.x",
-    "npm":    "1.2.x"
-  },
+  "license":"MIT"
 }
