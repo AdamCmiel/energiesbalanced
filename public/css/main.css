@@ -1,6 +1,11 @@
 .launch-background {
-  width:100%;
-	background: #feffff; /* Old browsers */
+  position:fixed;
+  top:0px;
+  bottom:0px;
+  left:0px;
+  right:0px;
+
+background: #feffff; /* Old browsers */
 
 /* IE9 SVG, needs conditional override of 'filter' to 'none' */
 
@@ -22,6 +27,25 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', end
 
 }
 
+.center {
+	width: 700px;
+  margin-left: auto; 
+  margin-right: auto; 
+}
+
+.title{
+	margin-top: 20%;
+	margin-bottom: 10%;
+}
+
+footer{
+	width: 100%;
+	position: fixed;
+	bottom: 0px;
+	background-color: #4A5259;
+	color: #D8E0E8;
+	padding: 20px;
+}
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
