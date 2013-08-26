@@ -78,10 +78,10 @@ User.isuser = function(fb_id){
       return false;
   });
 
-  if (!user)
-      return false;
-  else
+  if (user.data.facebook_id==fb_id)
       return true;
+  else
+      return false;
   
 
 }
