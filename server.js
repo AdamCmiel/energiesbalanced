@@ -69,19 +69,6 @@ User.create = function(data){
   newUser.save();
 };
 
-User.isuser = function(fb_id){
-  var user = User.findByID(fb_id);
-  if (!user)
-      return false;
-  else{
-    if (user.data.facebook_id==fb_id)
-      return true;
-    else
-      return false;
-  }
-
-}
-
 User.findById = function(fb_id){
   var user = User.find({'data.facebook_id':fb_id}).exec(function(err, userFound){
     if (!err)
@@ -91,6 +78,19 @@ User.findById = function(fb_id){
       return err;
   });
   return user[0];
+}
+
+User.isuser = function(fb_id){
+  var user = User.findById(fb_id);
+  if (!user)
+      return false;
+  else{
+    if (user.data.facebook_id==fb_id)
+      return true;
+    else
+      return false;
+  }
+
 }
 
 app.delete('/users/all', function(req, res){
