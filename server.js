@@ -55,7 +55,7 @@ User.create = function(data){
     'fb_username':data.username,
     'time_created':new Date()
   }
-  var newUser = new User({keep_data});
+  var newUser = new User(keep_data);
   newUser.save();
 };
 
