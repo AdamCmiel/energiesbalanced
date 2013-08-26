@@ -48,7 +48,7 @@ passport.use(new FacebookStrategy({
 //create user model
 var userSchema = new Schema({
   data:{
-    id: String,
+    facebook_id: String,
     first_name: String,
     last_name: String,
     fb_username: String,
@@ -59,11 +59,11 @@ var User = mongoose.model('User', userSchema);
 
 User.create = function(data){
   var keep_data={
-    'id':data.id,
-    'first_name':data.name.givenName,
-    'last_name':data.name.familyName,
-    'fb_username':data.username,
-    'time_created':new Date()
+    facebook_id: data.id,
+    first_name: data.name.givenName,
+    last_name: data.name.familyName,
+    fb_username: data.username,
+    time_created: new Date()
   };
   var newUser = new User({data: keep_data});
   newUser.save();
