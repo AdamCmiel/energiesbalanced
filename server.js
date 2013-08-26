@@ -146,8 +146,10 @@ app.get('/auth/facebook/callback',
 );
 
 //check to see if user is signed in
+/*
 app.get('/', function(req, res){
   var user_id = req.session.passport.user;
+  console.log(user_id);
   var is_user = User.isuser(user_id);
   if (is_user)
     res.redirect('/welcome/lisa');
@@ -165,6 +167,7 @@ app.get('/welcome/lisa', function(req, res){
     if(has_been_welcomed)
       res.redirect('/home'); 
 });
+*/
 
 app.get('/logout', function(req, res){
     req.logout();
