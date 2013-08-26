@@ -139,7 +139,7 @@ app.get('/', function(req, res){
 
 app.get('/welcome/lisa', function(req, res){
   var user_id = req.session.passport.user;
-  var user = User.find({'facebook_id':fb_id}).exec(function(err, userFound){
+  var user = User.find({'facebook_id':user_id}).exec(function(err, userFound){
     if(!err)
       return userFound;
     else
