@@ -57,7 +57,7 @@ var userSchema = new Schema({
 });
 var User = mongoose.model('User', userSchema);
 
-User.create = function(data){
+User.loginOrCreate = function(data){
   var keep_data={
     facebook_id: data.id,
     first_name: data.name.givenName,
@@ -65,7 +65,11 @@ User.create = function(data){
     fb_username: data.username,
     time_created: new Date()
   };
-  var newUser = new User({data: keep_data});
+  User.create(keep_data);
+}
+
+User.create = function(data){
+  var newUser = new User({data: data});
   newUser.save();
 };
 
@@ -89,7 +93,7 @@ app.get('/users', function(req, res){
 });
 
 passport.serializeUser(function(user, done) {
-  User.create(user);
+  User.loginOrCreate(user);
   done(null, user.id);
 });
 
@@ -106,7 +110,7 @@ app.get('/auth/facebook', passport.authenticate('facebook'));
 
 app.get('/auth/facebook/callback',
   passport.authenticate('facebook', { 
-    successRedirect: '/',
+    successRedirect: '/welcome/lisa',
     failureRedirect: '/' 
   })
 );
