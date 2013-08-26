@@ -52,7 +52,8 @@ var userSchema = new Schema({
     first_name: String,
     last_name: String,
     fb_username: String,
-    time_created: Date
+    time_created: Date,
+    welcome: Boolean
   }
 });
 var User = mongoose.model('User', userSchema);
@@ -63,7 +64,8 @@ User.create = function(data){
     first_name: data.name.givenName,
     last_name: data.name.familyName,
     fb_username: data.username,
-    time_created: new Date()
+    time_created: new Date(),
+    welcome: false
   };
   var newUser = new User({data: keep_data});
   newUser.save();
@@ -127,7 +129,26 @@ app.get('/auth/facebook/callback',
   })
 );
 
+//check to see if user is signed in
+app.get('/', function(req, res){
+  var user_id = req.session.passport.user;
+  var is_user = User.isuser(user_id);
+  if (is_user)
+    res.redirect('/welcome/lisa');
+});
 
+app.get('/welcome/lisa', function(req, res){
+  var user_id = req.session.passport.user;
+  var user = User.find({'facebook_id':fb_id}).exec(function(err, userFound){
+    if(!err)
+      return userFound;
+    else
+      console.log(err);
+  });
+  var has_been_welcomed = user.data.welcome;
+    if(has_been_welcomed)
+      res.redirect('/home'); 
+});
 
 app.get('/logout', function(req, res){
     req.logout();
