@@ -53,6 +53,19 @@ User.create = function(req, res){
   newUser.save();
 };
 
+app.delete('/users/all', function(req, res){
+  User.remove(function(err){
+    if (!err){
+      console.log('removed');
+      return res.send(User.find({}));
+    }
+    else{
+      console.log(err);
+
+    }
+  });
+});
+
 app.get('/users', function(req, res){
   var users = User.find({}).exec(function(err, users){
     res.send({users: users});
