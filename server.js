@@ -54,7 +54,8 @@ User.create = function(data){
     'last_name':data.name.familyName,
     'fb_username':data.username,
     'time_created':new Date()
-  }
+  };
+  console.log(keep_data);
   var newUser = new User(keep_data);
   newUser.save();
 };
