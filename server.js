@@ -74,6 +74,7 @@ app.get('/users', function(req, res){
 
 passport.serializeUser(function(user, done) {
   User.create(user);
+  console.log(user);
   done(null, user.id);
 });
 
