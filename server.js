@@ -113,6 +113,7 @@ app.get('/users', function(req, res){
 });
 
 passport.serializeUser(function(user, done) {
+  console.log(user.id);
   var is_user = User.isuser(user.id);
   if (!is_user){
     User.create(user);
