@@ -75,7 +75,8 @@ User.findById = function(fb_id){
       console.log(err);
       return err;
   });
-  return user[0];
+  console.log(user);
+  return user;
 }
 
 User.isuser = function(fb_id){
