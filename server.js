@@ -8,6 +8,7 @@ var fs = require('fs');
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 //in app models
 //var Cat = require('./config/cat.js');
 
@@ -45,7 +46,16 @@ passport.use(new FacebookStrategy({
 ));
 
 //create user model
-var User = mongoose.model('User', {});
+var userSchema = new Schema({
+  data:{
+    id: String,
+    first_name: String,
+    last_name: String,
+    fb_username: String,
+    time_created: Date
+  }
+});
+var User = mongoose.model('User', userSchema);
 
 User.create = function(data){
   var keep_data={
@@ -55,8 +65,7 @@ User.create = function(data){
     'fb_username':data.username,
     'time_created':new Date()
   };
-  console.log(keep_data);
-  var newUser = new User({keep_data});
+  var newUser = new User({data: keep_data});
   newUser.save();
 };
 
