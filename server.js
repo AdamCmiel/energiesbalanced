@@ -51,7 +51,6 @@ User.create = function(req, res){
   var data = req.body;
   var newUser = new User({data: data});
   newUser.save();
-  res.send({user: newUser});
 };
 
 app.get('/users', function(req, res){
