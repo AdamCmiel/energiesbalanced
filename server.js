@@ -75,12 +75,14 @@ User.isuser = function(fb_id){
       return userFound;
     else
       return false;
-  }, function(){
+  });
   if (!user)
       return false;
   else
       return true;
-  });
+  
+  console.log('What isuser query returned');
+  console.log(user);
 }
 
 app.delete('/users/all', function(req, res){
