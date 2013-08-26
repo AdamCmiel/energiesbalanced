@@ -68,7 +68,7 @@ User.create = function(data){
 };
 
 User.isuser = function(fb_id){
-  var user = User.find({facebook_id:fb_id}).exec(function(err, userFound){
+  var user = User.find({"facebook_id":fb_id}).exec(function(err, userFound){
     if (!err)
       return userFound;
     else{
