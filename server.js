@@ -70,7 +70,7 @@ User.create = function(data){
 };
 
 User.isuser = function(fb_id){
-  var user = User.findbyID(fb_id);
+  var user = User.findByID(fb_id);
   if (!user)
       return false;
   else{
