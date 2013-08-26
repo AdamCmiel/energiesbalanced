@@ -56,7 +56,7 @@ User.create = function(data){
     'time_created':new Date()
   };
   console.log(keep_data);
-  var newUser = new User(keep_data);
+  var newUser = new User({user: keep_data});
   newUser.save();
 };
 
