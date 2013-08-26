@@ -47,13 +47,11 @@ passport.use(new FacebookStrategy({
 
 //create user model
 var userSchema = new Schema({
-  data:{
     facebook_id: String,
     first_name: String,
     last_name: String,
     fb_username: String,
     time_created: Date,
-  }
 });
 var User = mongoose.model('User', userSchema);
 
@@ -65,12 +63,12 @@ User.create = function(data){
     fb_username: data.username,
     time_created: new Date(),
   };
-  var newUser = new User({data: keep_data});
+  var newUser = new User(keep_data);
   newUser.save();
 };
 
 User.findById = function(fb_id){
-  var user = User.find({'data.facebook_id':fb_id}).exec(function(err, userFound){
+  var user = User.find({facebook_id:fb_id}).exec(function(err, userFound){
     if (!err)
       return userFound;
     else
