@@ -67,20 +67,18 @@ User.create = function(data){
   newUser.save();
 };
 
-User.findById = function(fb_id){
+User.isuser = function(fb_id){
   var user = User.find({facebook_id:fb_id}).exec(function(err, userFound){
     if (!err)
       return userFound;
-    else
+    else{
+      console.log("error codee isuser");
       console.log(err);
       return err;
+    }
   });
+  console.log("this is the user returned");
   console.log(user);
-  return user;
-}
-
-User.isuser = function(fb_id){
-  var user = User.findById(fb_id);
   if (!user)
       return false;
   else{
@@ -112,7 +110,7 @@ app.get('/users', function(req, res){
 });
 
 passport.serializeUser(function(user, done) {
-  var is_user = User.isuser(user.id.toString());
+  var is_user = User.isuser(user.id);
   if (!is_user){
     User.create(user);
   }
