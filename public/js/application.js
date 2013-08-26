@@ -1,4 +1,4 @@
-function getDimensions() {
+/*function getDimensions() {
 	var width = window.innerWidth;
 	var height = window.innerHeight;
 	return {
@@ -8,9 +8,16 @@ function getDimensions() {
 };
 
 $(window).on('resize',function(){
-	var dimensions = getDimensions;
+	var dimensions = getDimensions();
 	$('body').css({
 		'height':dimensions.height,
 		'width':dimensions.width
 	});
+	$('.title').css({
+
+		'margin-top':0.2*dimensions.height+''
+		'margin-bottom':0.1*dimensions.height+''
+	});
+
 };
+*/

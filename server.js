@@ -9,7 +9,7 @@ var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var mongoose = require('mongoose');
 //in app models
-var Cat = require('./config/cat.js');
+//var Cat = require('./config/cat.js');
 
 //connect to the database
 mongoose.connect(process.env.MONGOHQ_URL);
@@ -30,7 +30,7 @@ app.configure(function() {
 
 
 //cat module
-app.post('/cats', Cat.create);
+//app.post('/cats', Cat.create);
 
 
 //facebook logins
@@ -44,7 +44,24 @@ passport.use(new FacebookStrategy({
   }
 ));
 
+//create user model
+var User = mongoose.model('User', {data: {}});
+
+User.create = function(req, res){
+  var data = req.body;
+  var newUser = new User({data: data});
+  newUser.save();
+  res.send({user: newUser});
+};
+
+app.get('/users', function(req, res){
+  var users = User.find({}).exec(function(err, users){
+    res.send({users: users});
+  });
+});
+
 passport.serializeUser(function(user, done) {
+  User.create(user);
   done(null, user.id);
 });
 
