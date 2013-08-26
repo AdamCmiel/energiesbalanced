@@ -47,8 +47,7 @@ passport.use(new FacebookStrategy({
 //create user model
 var User = mongoose.model('User', {data: {}});
 
-User.create = function(req, res){
-  var data = req.body._json;
+User.create = function(data){
   var newUser = new User({data: data});
   newUser.save();
 };
@@ -73,7 +72,7 @@ app.get('/users', function(req, res){
 });
 
 passport.serializeUser(function(user, done) {
-  User.create(user, function(){});
+  User.create(user);
   console.log(user);
   done(null, user.id);
 });
