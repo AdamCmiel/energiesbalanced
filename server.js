@@ -97,7 +97,7 @@ User.login = function(fb_id){
     else
       console.log(err);
   });
-  if (userFound)
+  if (user)
     return done(null, user);
 }
 
