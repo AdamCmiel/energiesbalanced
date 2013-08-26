@@ -70,13 +70,7 @@ User.create = function(data){
 User.isuser = function(fb_id){
   console.log(fb_id);
   var user = User.find({facebook_id:fb_id}).exec(function(err, userFound){
-    if (!err)
-      res.send(userFound);
-    else{
-      console.log("error codee isuser");
-      console.log(err);
-      return err;
-    }
+    return userFound;
   });
   console.log("this is the user returned");
   console.log(user);
@@ -108,6 +102,13 @@ app.get('/users', function(req, res){
   var users = User.find({}).exec(function(err, users){
     res.send({users: users});
   });
+});
+
+app.get('/users/:facebook_id', function(req, res){
+  var user = User.find({facebook_id: req.params.facebook_id}).exec(function(err,userFound){
+     res.send({user: userFound});
+  });
+ 
 });
 
 passport.serializeUser(function(user, done) {
