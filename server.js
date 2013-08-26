@@ -65,13 +65,41 @@ User.loginOrCreate = function(data){
     fb_username: data.username,
     time_created: new Date()
   };
-  User.create(keep_data);
+  var existingUser = User.isuser(keep_data.facebook_id);
+  if (!existingUser)
+    User.create(keep_data);
+  else
+    User.login(keep_data.facebook_id);
 }
 
 User.create = function(data){
   var newUser = new User({data: data});
   newUser.save();
 };
+
+User.isuser = function(fb_id){
+  var user = User.find({'facebook_id':fb_id}).exec(function(err, userFound){
+    if (!err)
+      return userFound;
+    else
+      return false;
+  });
+  if (!user)
+    return false;
+  else 
+    return true;
+}
+
+User.login = function(fb_id){
+  var user = User.find({'facebook_id':fb_id}).exec(function(err, userFound){
+    if (!err)
+      return userFound;
+    else
+      console.log(err);
+  });
+  if (userFound)
+    return done(null, user);
+}
 
 app.delete('/users/all', function(req, res){
   User.remove(function(err){
@@ -114,6 +142,8 @@ app.get('/auth/facebook/callback',
     failureRedirect: '/' 
   })
 );
+
+
 
 app.get('/logout', function(req, res){
     req.logout();
