@@ -53,7 +53,6 @@ var userSchema = new Schema({
     last_name: String,
     fb_username: String,
     time_created: Date,
-    welcome: Boolean
   }
 });
 var User = mongoose.model('User', userSchema);
@@ -65,7 +64,6 @@ User.create = function(data){
     last_name: data.name.familyName,
     fb_username: data.username,
     time_created: new Date(),
-    welcome: false
   };
   var newUser = new User({data: keep_data});
   newUser.save();
