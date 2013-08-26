@@ -71,14 +71,13 @@ User.create = function(data){
 
 User.isuser = function(fb_id){
   var user = User.find({'data.facebook_id':fb_id}).exec(function(err, userFound){
+    console.log(userFound);
     if (!err)
       return userFound;
     else
       return false;
   });
-  console.log('What isuser query returned');
-  console.log(user);
-  
+
   if (!user)
       return false;
   else
