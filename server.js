@@ -38,7 +38,7 @@ app.configure(function() {
 passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_APP_ID,
     clientSecret: process.env.FACEBOOK_APP_SECRET,
-    callbackURL: "http://energiesbalanced.dev:5000/auth/facebook/callback"
+    callbackURL: "http://energiesbalanced.herokuapp.com/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     done(null, profile);
