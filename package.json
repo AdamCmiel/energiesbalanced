@@ -5,7 +5,7 @@
     "mongoose":  "",
     "passport":  "",
     "passport-facebook":"",
-    "underscore":"",
+    "underscore":""
   },
   "name":     "EnergiesBalanced",
   "version":  "0.0.1",
