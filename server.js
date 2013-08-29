@@ -38,7 +38,7 @@ app.configure(function() {
 passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_APP_ID,
     clientSecret: process.env.FACEBOOK_APP_SECRET,
-    callbackURL: "http://energiesbalanced.herokuapp.com/auth/facebook/callback"
+    callbackURL: "http://energiesbalanced.dev:5000/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     done(null, profile);
@@ -53,7 +53,9 @@ var userSchema = new Schema({
     fb_username: String,
     time_created: Date,
 });
+
 var User = mongoose.model('User', userSchema);
+
 
 User.create = function(data){
   var keep_data={
@@ -67,22 +69,16 @@ User.create = function(data){
   newUser.save();
 };
 
-User.isuser = function(fb_id){
-  console.log(fb_id);
-  var user = User.find({facebook_id:fb_id}).exec(function(err, userFound){
-    return userFound;
-  });
-  console.log("this is the user returned");
-  console.log(user);
-  if (!user)
-      return false;
-  else{
-    if (user.facebook_id==fb_id)
-      return true;
-    else
-      return false;
-  }
-
+User.currentUser = function(session){
+  console.log(session.passport.user);
+  User.find({facebook_id: session.passport.user}).limit(1).exec(function(err, users) {
+    if (err) return null
+    if (users.length == 1) {
+      return users[0]
+    } else {
+      return null
+    }
+  })
 }
 
 app.delete('/users/all', function(req, res){
@@ -112,11 +108,17 @@ app.get('/users/:facebook_id', function(req, res){
 });
 
 passport.serializeUser(function(user, done) {
-  var is_user = User.isuser(user.id);
-  if (!is_user){
-    User.create(user);
-  }
-  done(null, user.id);
+  User.find({ 'facebook_id': user.id }).limit(1).exec(function (err, dbUsers) {
+
+    // on no record found create user
+    if (dbUsers.length < 1 || err) {
+      user = User.create(user);
+      done(null, user.id);
+      console.log(err);
+    } else {
+      done(null, dbUsers[0]);
+    }
+  })
 });
 
 passport.deserializeUser(function(user, done) {
@@ -142,7 +144,7 @@ app.get('/auth/facebook/callback',
 app.get('/', function(req, res){
   var user_id = req.session.passport.user;
   console.log(user_id);
-  var is_user = User.isuser(user_id);
+  var is_user = User.is_user(user_id);
   if (is_user)
     res.redirect('/welcome/lisa');
 });
@@ -168,7 +170,10 @@ app.get('/logout', function(req, res){
 
 //sessions relay
 app.get('/session', function(req, response){
-  response.send({session: req.session});
+  response.send({
+    session: req.session,
+    currentUser: User.currentUser(req.session)
+  });
 });
 
 app.use(express.logger());
