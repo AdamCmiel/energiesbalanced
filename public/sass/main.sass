@@ -1,28 +1,238 @@
 //main styles.sass
 @import "compass"
 @import "compass/layout"
+@import "reset"
+@import url(http:fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300)
 
-.launch-background
-  +stretch
-  @include background-image(radial-gradient(center, ellipse cover, #feffff 0%,#ddf1f9 35%,#a0d8ef 100%))
+$color-primary: #8F9ACC
+$color-dacc:    #2E3242
+$color-macc:    #4F5673
+$color-lacc:    #BBBDC7
+
+$base-font-size: 24px
+$base-line-height: 36px
++establish-baseline
+
+=headerAlign($spacing:10px)
+  #headerLogo
+    margin-left: $spacing
+
+  .navH1
+    margin-left: $spacing
+
+  .navH2
+    margin-right: $spacing
+
+  .navFace
+    margin-right: $spacing  
+
+@font-face
+  font-family: "OpenSans-Light"
+  src: url('../img/OpenSans-Light.ttf')
+
+@media screen 
+  body
+    margin: 0
+    width: 100%
+    +stretch(70px,0,0,0)
+    background-color: #ffffff // Old browsers
+    background: $color-primary
+    @include background-image(radial-gradient( center, ellipse cover, $color-primary 10%, $color-dacc 100%))
+    font-family: "OpenSans-Light"
+
+  header
+    position: fixed
+    top: 0
+    //z-index: 100
+    background-color: #FFF
+    color: $color-dacc
+    text-align: center
+    width: 100%
+    padding: 40px 0 20px 0
+    overflow: hidden
+
+  header h1
+    +adjust-font-size-to(48px)
+    display: inline-block
+
+  .launchLogo
+    display: block
+    margin: 25px auto 25px 
+    background: inherit
+   
+
+  .logo
+    background: url('../img/logo.png') no-repeat
+    background-size: 100%
+    width: 300px
+    height: 300px
+
+  #login
+    width: 350px
+    margin: 0 auto 80px 
+    +adjust-font-size-to(24px)
+    background: #fff
+    color: $color-dacc
+    text-align: center
+    padding: 15px
+    +border-radius(10px)
+    +box-shadow($color-macc 0 5px 0)
+    &:active
+      +box-shadow(0 0 0 rgba(0,0,0,0))
+      +transform(translate(0,5px))
+      background: $color-lacc
+      color: #FFF
+
+  .content
+    opacity: 1
+
+  footer
+    width: 100%
+    background-color: #FFF
+    color: $color-dacc
+    +adjust-font-size-to(24px)
+    padding: 10px 0 10px
+
+  footer p
+    width: 600px
+    margin: 0 auto 0
+
+  .copyright
+    +adjust-font-size-to(20px)
+    color: $color-dacc
+    margin-left: auto
+    margin-right: auto
+    text-align: center
+
+  #headerLogo
+    float: left
+    height: 50px
+    width: 50px
+
+  //#headerLogo,.navH1,.navH2,.navFace
+    //display: inline-block
+
+  .navH1
+    float: left
+    text-align: left
+    +adjust-font-size-to(30px)
+    margin-top: 5px
+
+  .navFace
+    float: right
+    height: 50px
+    width: 50px
+    +border-radius(50px) 
+    //+box-shadow(white 0 0 10px inset)
+
+  .navH2
+    margin-top: 5px
+    float: right
+    width: 150px
+    text-align: right
+    +adjust-font-size-to(24px)
+
+  +headerAlign(25px)  
+
+  .mobile
+    display: none
+
+  $nav-classes: donate video locations massage message schedule yoga
 
 
-.center
-  width: 700px
-  margin-left: auto
-  margin-right: auto
+  li
+    display: inline-block
+    background: url('../img/cat.jpg') no-repeat
+    background-size: 10%
+    width: 33.33333333%
+    height: 200px
+    p
+      text-align: center
+      color: #FFF
+      position: relative
+      top: 150px
+    
+    @each $class in $nav-classes
+      &.#{$class}
+        background: url('../img/#{$class}_icon.png') no-repeat
+        background-size: 100%
 
-.title
-  margin-top: 20%
-  margin-bottom: 10%
+@media screen and (min-height: 800px)
+  footer
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 0
 
-footer
-  width: 100%
-  position: fixed
-  bottom: 0px
-  background-color: #4A5259
-  color: #D8E0E8
-  padding: 20px
 
-.deen
-  color: yellow
+@media screen and (max-width: 1024px)
+
+  header
+    width: 100%
+    padding: 10px 0 10px
+
+  header h1
+    font-size: 1.5em
+    display: block
+
+  .launchLogo
+    margin: 50px auto 50px
+    width: 200px
+    height: 200px
+
+  #login
+    font-size: 1em
+    padding: 10px 2.5% 10px 2.5%
+    margin: 50px 20% 50px
+    width: 55%
+    +box-shadow($color-macc 0 8px 0)
+
+  footer
+    width: 96%
+    padding: 3%
+
+  footer p
+    width: 100%
+
+  +headerAlign(10px)
+
+@media screen and (max-width: 400px)
+
+  .mobile
+    display: inline-block
+
+  .nonMobile
+    display: none
+
+  header 
+    margin: 0
+    padding: 10px 0 10px
+    width: 100%
+
+  header h1
+    font-size: 1.5em
+
+  .launchLogo
+    margin: 25px auto 20px auto
+    width: 200px
+    height: 200px
+
+  #login
+    font-size: 1em
+    padding: 5%
+    width: 80%
+    margin: 10% 5% 10% 5%
+    +box-shadow($color-macc 0 5px 0)
+  
+  +headerAlign(5px)
+
+  li
+    +adjust-font-size-to(14px)
+
+  //width: 50%
+  //height: 200px
+
+
+    
+
+

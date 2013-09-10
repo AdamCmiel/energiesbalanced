@@ -1,41 +1,388 @@
-/* line 5, ../sass/main.sass */
-.launch-background {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-image: -webkit-gradient(radial, 50%, 0, 50%, 100, color-stop(0%, #feffff), color-stop(35%, #ddf1f9), color-stop(100%, #a0d8ef));
-  background-image: -webkit-radial-gradient(center, ellipse cover, #feffff 0%, #ddf1f9 35%, #a0d8ef 100%);
-  background-image: -moz-radial-gradient(center, ellipse cover, #feffff 0%, #ddf1f9 35%, #a0d8ef 100%);
-  background-image: -o-radial-gradient(center, ellipse cover, #feffff 0%, #ddf1f9 35%, #a0d8ef 100%);
-  background-image: radial-gradient(center, ellipse cover, #feffff 0%, #ddf1f9 35%, #a0d8ef 100%);
+@import url(http:fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300);
+/* http://meyerweb.com/eric/tools/css/reset/
+ * v2.0 | 20110126
+ * License: none (public domain) */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-decoration: none;
 }
 
-/* line 10, ../sass/main.sass */
-.center {
-  width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
 }
 
-/* line 15, ../sass/main.sass */
-.title {
-  margin-top: 20%;
-  margin-bottom: 10%;
+body {
+  line-height: 1;
 }
 
-/* line 19, ../sass/main.sass */
-footer {
-  width: 100%;
-  position: fixed;
-  bottom: 0px;
-  background-color: #4a5259;
-  color: #d8e0e8;
-  padding: 20px;
+ol, ul {
+  list-style: none;
 }
 
-/* line 27, ../sass/main.sass */
-.deen {
-  color: yellow;
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* html {
+  font-size: 150%;
+}
+
+html {
+  font-size: 24px;
+  line-height: 1.5em;
+}
+
+@font-face {
+  font-family: "OpenSans-Light";
+  src: url("../img/OpenSans-Light.ttf");
+}
+
+@media screen {
+  body {
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    top: 70px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    background: #8f9acc;
+    background-image: -webkit-gradient(radial, 50%, 0, 50%, 100, color-stop(10%, #8f9acc), color-stop(100%, #2e3242));
+    background-image: -webkit-radial-gradient(center, ellipse cover, #8f9acc 10%, #2e3242 100%);
+    background-image: -moz-radial-gradient(center, ellipse cover, #8f9acc 10%, #2e3242 100%);
+    background-image: -o-radial-gradient(center, ellipse cover, #8f9acc 10%, #2e3242 100%);
+    background-image: radial-gradient(center, ellipse cover, #8f9acc 10%, #2e3242 100%);
+    font-family: "OpenSans-Light";
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    background-color: white;
+    color: #2e3242;
+    text-align: center;
+    width: 100%;
+    padding: 40px 0 20px 0;
+    overflow: hidden;
+  }
+
+  header h1 {
+    font-size: 2em;
+    line-height: 1.5em;
+    display: inline-block;
+  }
+
+  .launchLogo {
+    display: block;
+    margin: 25px auto 25px;
+    background: inherit;
+  }
+
+  .logo {
+    background: url("../img/logo.png") no-repeat;
+    background-size: 100%;
+    width: 300px;
+    height: 300px;
+  }
+
+  #login {
+    width: 350px;
+    margin: 0 auto 80px;
+    font-size: 1em;
+    line-height: 1.5em;
+    background: white;
+    color: #2e3242;
+    text-align: center;
+    padding: 15px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: #4f5673 0 5px 0;
+    -moz-box-shadow: #4f5673 0 5px 0;
+    box-shadow: #4f5673 0 5px 0;
+  }
+  #login:active {
+    -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    -webkit-transform: translate(0, 5px);
+    -moz-transform: translate(0, 5px);
+    -ms-transform: translate(0, 5px);
+    -o-transform: translate(0, 5px);
+    transform: translate(0, 5px);
+    background: #bbbdc7;
+    color: white;
+  }
+
+  .content {
+    opacity: 1;
+  }
+
+  footer {
+    width: 100%;
+    background-color: white;
+    color: #2e3242;
+    font-size: 1em;
+    line-height: 1.5em;
+    padding: 10px 0 10px;
+  }
+
+  footer p {
+    width: 600px;
+    margin: 0 auto 0;
+  }
+
+  .copyright {
+    font-size: 0.83333em;
+    line-height: 1.8em;
+    color: #2e3242;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  #headerLogo {
+    float: left;
+    height: 50px;
+    width: 50px;
+  }
+
+  .navH1 {
+    float: left;
+    text-align: left;
+    font-size: 1.25em;
+    line-height: 1.2em;
+    margin-top: 5px;
+  }
+
+  .navFace {
+    float: right;
+    height: 50px;
+    width: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    border-radius: 50px;
+  }
+
+  .navH2 {
+    margin-top: 5px;
+    float: right;
+    width: 150px;
+    text-align: right;
+    font-size: 1em;
+    line-height: 1.5em;
+  }
+
+  #headerLogo {
+    margin-left: 25px;
+  }
+
+  .navH1 {
+    margin-left: 25px;
+  }
+
+  .navH2 {
+    margin-right: 25px;
+  }
+
+  .navFace {
+    margin-right: 25px;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  li {
+    display: inline-block;
+    background: url("../img/cat.jpg") no-repeat;
+    background-size: 10%;
+    width: 33.33333%;
+    height: 200px;
+  }
+  li p {
+    text-align: center;
+    color: white;
+    position: relative;
+    top: 150px;
+  }
+  li.donate {
+    background: url("../img/donate_icon.png") no-repeat;
+    background-size: 100%;
+  }
+  li.video {
+    background: url("../img/video_icon.png") no-repeat;
+    background-size: 100%;
+  }
+  li.locations {
+    background: url("../img/locations_icon.png") no-repeat;
+    background-size: 100%;
+  }
+  li.massage {
+    background: url("../img/massage_icon.png") no-repeat;
+    background-size: 100%;
+  }
+  li.message {
+    background: url("../img/message_icon.png") no-repeat;
+    background-size: 100%;
+  }
+  li.schedule {
+    background: url("../img/schedule_icon.png") no-repeat;
+    background-size: 100%;
+  }
+  li.yoga {
+    background: url("../img/yoga_icon.png") no-repeat;
+    background-size: 100%;
+  }
+}
+@media screen and (min-height: 800px) {
+  footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+@media screen and (max-width: 1024px) {
+  header {
+    width: 100%;
+    padding: 10px 0 10px;
+  }
+
+  header h1 {
+    font-size: 1.5em;
+    display: block;
+  }
+
+  .launchLogo {
+    margin: 50px auto 50px;
+    width: 200px;
+    height: 200px;
+  }
+
+  #login {
+    font-size: 1em;
+    padding: 10px 2.5% 10px 2.5%;
+    margin: 50px 20% 50px;
+    width: 55%;
+    -webkit-box-shadow: #4f5673 0 8px 0;
+    -moz-box-shadow: #4f5673 0 8px 0;
+    box-shadow: #4f5673 0 8px 0;
+  }
+
+  footer {
+    width: 96%;
+    padding: 3%;
+  }
+
+  footer p {
+    width: 100%;
+  }
+
+  #headerLogo {
+    margin-left: 10px;
+  }
+
+  .navH1 {
+    margin-left: 10px;
+  }
+
+  .navH2 {
+    margin-right: 10px;
+  }
+
+  .navFace {
+    margin-right: 10px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .mobile {
+    display: inline-block;
+  }
+
+  .nonMobile {
+    display: none;
+  }
+
+  header {
+    margin: 0;
+    padding: 10px 0 10px;
+    width: 100%;
+  }
+
+  header h1 {
+    font-size: 1.5em;
+  }
+
+  .launchLogo {
+    margin: 25px auto 20px auto;
+    width: 200px;
+    height: 200px;
+  }
+
+  #login {
+    font-size: 1em;
+    padding: 5%;
+    width: 80%;
+    margin: 10% 5% 10% 5%;
+    -webkit-box-shadow: #4f5673 0 5px 0;
+    -moz-box-shadow: #4f5673 0 5px 0;
+    box-shadow: #4f5673 0 5px 0;
+  }
+
+  #headerLogo {
+    margin-left: 5px;
+  }
+
+  .navH1 {
+    margin-left: 5px;
+  }
+
+  .navH2 {
+    margin-right: 5px;
+  }
+
+  .navFace {
+    margin-right: 5px;
+  }
+
+  li {
+    font-size: 0.58333em;
+    line-height: 2.57143em;
+  }
 }

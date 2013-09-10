@@ -28,11 +28,87 @@ app.configure(function() {
   app.use(app.router);
 });
 
+var Data = mongoose.model('Data', {message: String});
 
+Data.create = function(dataIn, callBack){
+  var data = new Data(dataIn);
+  data.save(callBack);
+};
 
-//cat module
-//app.post('/cats', Cat.create);
+app.post('/data', function(req,res){
+  Data.create(req.body, function(err,cbres){
+    res.send(cbres);
+  });
+});
 
+app.get('/data/:message', function(req,res){
+  Data.find({message: req.params.message}).exec(function(err,result){
+    res.send(result);
+  });
+});
+
+app.delete('/data/all', function(req,res){
+  Data.remove(function(err){
+    if (!err){
+      console.log('removed')
+      return res.send(Data.find({}));
+    }
+  });
+});
+
+var Markup = mongoose.model('Markup', {name: String, markup: String});
+
+Markup.create = function(params, callBack){
+  var markup = new Markup(params);
+  markup.save(callBack);
+};
+
+app.post('/markup', function(req, res){
+  console.log(req.body);
+  Markup.create(req.body, function(err, cbres){
+    console.log(cbres);
+    res.send(cbres);
+  });
+});
+
+app.get('/markup/nav', function(req, res){
+  //Markup.find({name: req.params.name}).exec(function(err, result){
+    var result = {
+      firstName: 'Adam',
+      imgUrl: '681333973',
+      listItems: [
+        {li_class: 'donate',
+         li_text: 'Donate to EB'},
+         {li_class: 'video',
+         li_text: 'Yoga Videos'},
+         {li_class: 'locations',
+         li_text: 'Our Locations'},
+         {li_class: 'massage',
+         li_text: 'Book Massage'},
+         {li_class: 'schedule',
+         li_text: 'Yoga Schedule'},
+         {li_class: 'message',
+         li_text: 'Leave a message'}
+      ]
+    };
+    res.send(result);
+  //});
+});
+
+app.get('/markup', function(req, res){
+  Markup.find({}).exec(function(err, result){
+    res.send(result);
+  });
+});
+
+app.delete('/markup/all', function(req, res){
+  Markup.remove(function(err){
+    if (!err){
+      console.log('removed');
+      return res.send(Data.find({}));
+    }
+  })
+});
 
 //facebook logins
 passport.use(new FacebookStrategy({
@@ -78,8 +154,8 @@ User.currentUser = function(session){
     } else {
       return null
     }
-  })
-}
+  });
+};
 
 app.delete('/users/all', function(req, res){
   User.remove(function(err){
@@ -104,7 +180,6 @@ app.get('/users/:facebook_id', function(req, res){
   var user = User.find({facebook_id: req.params.facebook_id}).exec(function(err,userFound){
      res.send({user: userFound});
   });
- 
 });
 
 passport.serializeUser(function(user, done) {
@@ -117,8 +192,8 @@ passport.serializeUser(function(user, done) {
       console.log(err);
     } else {
       done(null, dbUsers[0]);
-    }
-  })
+    };
+  });
 });
 
 passport.deserializeUser(function(user, done) {
@@ -134,7 +209,7 @@ app.get('/auth/facebook', passport.authenticate('facebook'));
 
 app.get('/auth/facebook/callback',
   passport.authenticate('facebook', { 
-    successRedirect: '/welcome/lisa',
+    successRedirect: '/nav',
     failureRedirect: '/' 
   })
 );
@@ -148,20 +223,13 @@ app.get('/', function(req, res){
   if (is_user)
     res.redirect('/welcome/lisa');
 });
-
-app.get('/welcome/lisa', function(req, res){
-  var user_id = req.session.passport.user;
-  var user = User.find({'facebook_id':user_id}).exec(function(err, userFound){
-    if(!err)
-      return userFound;
-    else
-      console.log(err);
-  });
-  var has_been_welcomed = user.data.welcome;
-    if(has_been_welcomed)
-      res.redirect('/home'); 
-});
 */
+app.get('/welcome/lisa', function(req, res){
+  console.log(req.query);
+  Data.find({message: req.query.message}).exec(function(err,cbres){
+    res.send(cbres[0]);
+  });
+});
 
 app.get('/logout', function(req, res){
     req.logout();
@@ -182,6 +250,5 @@ var port = process.env.PORT || 5000;
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
-
 //expose app
 exports = module.exports = app;
