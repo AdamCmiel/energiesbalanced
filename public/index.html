@@ -1,11 +1,89 @@
-<!DOCTYPE html><html class="no-js"><head><meta charset="utf-8"><meta http-equib="X-UA-Compatible" content="IE=edge,chrome=1"><title>Energies Balanced</title><meta name="description" content=""><meta name="viewport" content="width=device-width user-scalable=no" initial-scale="1" maximum-scale="1"><link rel="icon" href="/img/om_favicon.jpg"><link rel="stylesheet" href="/stylesheets/reset.css"><link rel="stylesheet" href="/stylesheets/main.css"><script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script></head><body ontouchstart=""><header><h1>Energies Balanced</h1></header><div class="launchLogo logo"></div><a href=""><div id="login" class="button"><div class="content">Sign in with Facebook</div></div></a><footer><p>Here at Energies Balanced we support the human experience with love and kindness.  We do not turn anyone away from the practice of yoga due to money. Yoga is a community of sharing and learning. It is about the union of the self!  If you are not able to pay the full class price still attend class and make a donation. </p><p class="copyright">&#169; 2013 Energies Balanced &#2384;</p></footer></body><script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.js"></script><script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.js"><\/script>')</script><script src="/js/vendor/bootstrap.min.js"></script><script src="/js/plugins.js"></script><script src="/js/underscore.js"></script><script src="/js/backbone.js"></script><script src="/js/application.js"></script><script type="text/template" id="myTemplate"><header><h1><%= message %></h1></header></script><script type="text/template" id="navTemplate"><header>
-<div id="headerLogo" class="logo"></div>
-<h1 class='navH1 mobile'>EB</h1><h1 class='navH1 nonMobile'>Energies Balanced</h1>
-<img src="http://graph.facebook.com/<%= imgUrl %>/picture" class="navFace"></div>
-<h2 class='navH2'>Hello, <%= firstName %></h2>
-</header>
-<div class="container">
-<nav class="mainNav"> 
-<ul><%= listItems %></ul>
-</nav>
-</div> </script></html>
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equib="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Energies Balanced</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width user-scalable=no" initial-scale="1" maximum-scale="1">
+    <link rel="icon" href="/img/om_favicon.jpg">
+    <link rel="stylesheet" href="/stylesheets/reset.css">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+  </head>
+  <body ontouchstart="">
+    <header>
+      <h1>Energies Balanced</h1>
+    </header>
+    <div class="container"></div>
+    <footer>
+      <p>Please enable JavaScript in your browser.  Most modern webpages rely on Javascript to funciton properly.  </p>
+      <p>Here at Energies Balanced we support the human experience with love and kindness.  We do not turn anyone away from the practice of yoga due to money. Yoga is a community of sharing and learning. It is about the union of the self!  If you are not able to pay the full class price still attend class and make a donation. </p>
+      <p class="copyright">&#169; 2013 Energies Balanced &#2384;</p>
+    </footer>
+  </body>
+  <script type="text/template" id="splashPage">
+    <header>
+      <h1>Energies Balanced</h1>
+    </header>
+    <div class="container">
+      <div class="launchLogo logo"></div><a href="">
+        <div id="login" class="button">Sign in with Facebook</div></a>
+    </div>
+    <footer>
+      <p>Here at Energies Balanced we support the human experience with love and kindness.  We do not turn anyone away from the practice of yoga due to money. Yoga is a community of sharing and learning. It is about the union of the self!  If you are not able to pay the full class price still attend class and make a donation. </p>
+      <p class="copyright">&#169; 2013 Energies Balanced &#2384;</p>
+    </footer>
+  </script>
+  <script src="/js/jquery.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.js"><\/script>')</script>
+  <script src="/js/vendor/bootstrap.min.js"></script>
+  <script src="/js/plugins.js"></script>
+  <script src="/js/underscore.js"></script>
+  <script src="/js/backbone.js"></script>
+  <script src="/js/application.js"></script>
+  <script type="text/template" id="appShell">
+    <header>
+      <div id="headerLogo" class="logo"></div>
+      <h1 class="navH1 mobile">EB</h1>
+      <h1 class="navH1 nonMobile">EnergiesBalanced</h1><img src="http://graph.facebook.com/&lt;%= imgUrl %&gt;/picture" class="navFace">
+      <h2 class="navH2">Hello, <%= firstName %></h2>
+    </header>
+    <div class="container"></div>
+  </script>
+  <script type="text/template" id="navTemplate">
+    <nav class="mainNav">
+      <ul><%= listItems %></ul>
+    </nav>
+  </script>
+  <script type="text/template" id="navLiTemplate">
+    <li class="<%=li_class%>"><a href="/error">
+        <p><%=li_text%></p></a></li>
+  </script>
+  <script type="text/template" id="scheduleTemplate">
+    <nav class="dayRibbon">
+      <ul>
+        <li>Monday</li>
+        <li>Tuesday</li>
+        <li>Wednesday</li>
+        <li>Thursday</li>
+        <li>Friday</li>
+        <li>Saturday</li>
+        <li>Sunday</li>
+      </ul>
+    </nav>
+    <ul class="classesTaught"></ul>
+  </script>
+  <script type="text/template" id="classLi">
+    <li>
+      <div class="row">
+        <h3 class="classTitle"><%= classTitle %></h3>
+        <p class="classLocation"><%= classLocation %></p>
+      </div>
+      <div class="row">
+        <p class="classTime"><%= classTime %></p>
+        <p class="classDescription truncated"><%= classDescription %></p>
+      </div>
+    </li>
+  </script>
+</html>

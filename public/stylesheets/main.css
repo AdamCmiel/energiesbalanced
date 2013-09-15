@@ -232,14 +232,22 @@ html {
     display: inline-block;
     background: url("../img/cat.jpg") no-repeat;
     background-size: 10%;
-    width: 33.33333%;
+    width: 32%;
     height: 200px;
+    position: relative;
   }
   li p {
     text-align: center;
     color: white;
     position: relative;
     top: 150px;
+  }
+  li a {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
   li.donate {
     background: url("../img/donate_icon.png") no-repeat;

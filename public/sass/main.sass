@@ -139,18 +139,21 @@ $base-line-height: 36px
 
   $nav-classes: donate video locations massage message schedule yoga
 
-
   li
     display: inline-block
     background: url('../img/cat.jpg') no-repeat
     background-size: 10%
-    width: 33.33333333%
+    width: 32%
     height: 200px
+    position: relative
     p
       text-align: center
       color: #FFF
       position: relative
       top: 150px
+    a
+      +stretch
+
     
     @each $class in $nav-classes
       &.#{$class}

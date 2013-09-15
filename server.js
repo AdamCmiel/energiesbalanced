@@ -13,7 +13,7 @@ var Schema = mongoose.Schema;
 //var Cat = require('./config/cat.js');
 
 //connect to the database
-mongoose.connect(process.env.MONGOHQ_URL);
+//mongoose.connect(process.env.MONGOHQ_URL);
 
 //declare app variable
 var app = express();
@@ -71,6 +71,28 @@ app.post('/markup', function(req, res){
   });
 });
 
+app.get('/markup/:id', function(req,res){
+  var result = {
+      firstName: 'Adam',
+      imgUrl: '681333973',
+      listItems: [
+        {li_class: 'donate',
+         li_text: 'Donate to EB'},
+         {li_class: 'video',
+         li_text: 'Yoga Videos'},
+         {li_class: 'locations',
+         li_text: 'Our Locations'},
+         {li_class: 'massage',
+         li_text: 'Book Massage'},
+         {li_class: 'schedule',
+         li_text: 'Yoga Schedule'},
+         {li_class: 'message',
+         li_text: 'Leave a message'}
+      ]
+    };
+    res.send(result);
+  });
+/*
 app.get('/markup/nav', function(req, res){
   //Markup.find({name: req.params.name}).exec(function(err, result){
     var result = {
@@ -100,6 +122,8 @@ app.get('/markup', function(req, res){
     res.send(result);
   });
 });
+
+*/
 
 app.delete('/markup/all', function(req, res){
   Markup.remove(function(err){
@@ -146,7 +170,7 @@ User.create = function(data){
 };
 
 User.currentUser = function(session){
-  console.log(session.passport.user);
+  console.log('User' + session.passport.user);
   User.find({facebook_id: session.passport.user}).limit(1).exec(function(err, users) {
     if (err) return null
     if (users.length == 1) {
