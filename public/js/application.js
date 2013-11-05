@@ -174,6 +174,7 @@ $(document).ready(function(){
 	});
 
 	$('.schedule').on('click', function(event){
+		alert('click');
 		event.preventDefault();
 		router.navigate('schedule', {trigger: true});
 	});
