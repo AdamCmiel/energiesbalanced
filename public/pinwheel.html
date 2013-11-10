@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<head>
+  <!-- <link href="./pinwheel.css" rel="stylesheet"> -->
+  <style>
+     body{
+    	position: absolute;
+	    top:0;left:0;right:0;bottom:0;
+    }
+    .long{
+	    position: absolute;
+        top: 200px;
+	    left: 200px;
+	    width: 100px;
+	    height: 100px;
+    }
+    .longarm{
+    	position: relative;
+	    left: 40px;
+    	top: -150px;
+    	width: 0;
+    	height: 0;
+    	border-left: 10px  solid transparent;
+    	border-right: 10px  solid transparent;
+    	border-bottom: 200px  solid #222;
+    }
+    .rotate180{
+    	-webkit-transform: rotate(180deg);
+	    transform: rotate(180deg);
+    	position: relative;
+	    top: 49px;
+    }
+    .shortarm{
+	    position: relative;
+        left: 40px;
+	    top: -70px;
+    	width: 0px;
+	    height: 0px;
+	    border-left: 10px  solid transparent;
+	    border-right: 10px  solid transparent;
+	    border-bottom: 120px  solid #222;
+    }
+    .short{
+	    position: absolute;
+    	top: 200px;
+	    left: 200px;
+    	width: 100px;
+    	height: 100px;
+    }
+    @-webkit-keyframes rotate {
+    	from { -webkit-transform: rotate(0deg); }
+    	to { -webkit-transform: rotate(360deg); }
+    }
+    .rotate-slow{
+        -webkit-animation: rotate 3s 4000 linear;
+	    -moz-animation: rotate 3s 4000 linear;
+	    -o-animation: rotate 3s 4000 linear;
+    }
+    .rotate-fast{	
+	    -webkit-animation: rotate 1s 4000 linear;
+	    -moz-animation: rotatea 1s 4000 linear;
+	    -o-animation: rotate 1s 4000 linear;
+    }
+  </style>
+</head>
+<body>
+    <div class="long rotate-fast">
+      <div class='longarm'></div>
+
+    </div>
+    <div class="short rotate-fast">
+      <div class='longarm rotate180'></div>
+    </div>  
+  </div>
+</body>

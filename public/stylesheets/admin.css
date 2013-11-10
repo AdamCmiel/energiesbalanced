@@ -1,0 +1,91 @@
+@font-face {
+  font-family: "OpenSans-Light";
+  src: url("../img/OpenSans-Light.ttf");
+}
+
+body {
+  font-family: "OpenSans-Light";
+  line-height: 32px;
+  font-size: 26px;
+}
+
+sidebar {
+  display: inline-block;
+  width: 250px;
+  color: white;
+  background: #444444;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  padding: 25px;
+}
+
+sidebar label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.httpNav {
+  margin-top: 100px;
+  line-height: 2em;
+}
+
+.selector {
+  display: none;
+  line-height: 1em;
+}
+
+.label h1 {
+  display: inline-block;
+}
+
+.dropClick {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  background: #222222;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  position: absolute;
+  left: 250px;
+}
+
+li {
+  text-align: center;
+  border-style: solid;
+  border-color: white;
+  border-width: 2px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  padding: 0 10px 0;
+  margin: 5px 0 15px;
+  width: 230px;
+}
+li:hover, li:active {
+  background: white;
+  color: #222222;
+  border-color: #222222;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 300px;
+  right: 0;
+  display: inline-block;
+  color: #222222;
+  padding: 20px;
+}
+
+select {
+  font-size: 100px;
+}

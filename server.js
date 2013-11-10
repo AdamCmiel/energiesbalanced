@@ -82,7 +82,7 @@ app.get('/logout', function(req, res){
 
 app.get('/api/users', User.getUsers);
 app.get('/api/users/:facebook_id', User.getUserById);
-app.delete('api/users/all', User.deleteAll);
+//app.delete('api/users/all', User.deleteAll);
 
 
 
