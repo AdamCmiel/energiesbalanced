@@ -1,13 +1,13 @@
 $(document).ready(function(){
 	var currentUser = null;	
-	var router = new Backbone.Router.extend({
+	var Router = Backbone.Router.extend({
 		routes:{
 			"/": "checkUser",
 			"sign_in": "loadSignIn",
 			"nav": "loadNav",
-			"/logout": "logout"
+			"logout": "logout"
 		},
-		checkUser: checkUserAndNavigate('path'),
+		checkUser: checkUserAndNavigate('/nav'),
 		loadSignIn: function(){
 			$('body *').hide();
 	    	$('body').append($('#splashPage').html());
@@ -20,13 +20,15 @@ $(document).ready(function(){
 	    	currentUser = null;
 	    	$.get('/api/logout', function(){});
 	    }
-	})();
+	});
 
-	function checkUserAndNavigate(path){
+	var router = new Router();
+
+	function checkUserAndNavigate(){
 		$.get('/api/session', function(data){
 			currentUser = data.currentUser;
 			if (currentUser && currentUser.facebook_id){
-				router.navigate(path, {trigger:true});
+				router.navigate('nav', {trigger:true});
 			} else router.navigate('sign_in', {trigger: true});
 		});
 	};
