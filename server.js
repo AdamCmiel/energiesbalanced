@@ -24,6 +24,7 @@ mongoose.connect(process.env.MONGOHQ_URL);
 //declare app variable
 var app = express();
 
+
 //middleware stack
 app.configure(function() {
   app.use(express.cookieParser());
@@ -36,7 +37,12 @@ app.configure(function() {
   app.set('view engine', 'jade');
   app.use(stylus.middleware({
     src: __dirname + '/public/styl',
-    compile: compile }));
+    compile: function (str, path) {
+      return stylus(str)
+       .set('filename', path)
+       .use(nib())
+      }
+  }));
   app.use(express.static(__dirname+'public'));
 });
 
