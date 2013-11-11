@@ -14,6 +14,8 @@ var YogaClass = require('./models/yogaClass.js');
 var Massage = require('./models/massage.js');
 var InAppMessage = require('./models/inAppMessage.js');
 var FacebookPost = require('./models/facebookPost.js');
+var compass = require('node-compass');
+var sass = require('node-sass');
 //connect to the database
 mongoose.connect(process.env.MONGOHQ_URL);
 //declare app variable
@@ -28,6 +30,13 @@ app.configure(function() {
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(app.router);
+  app.use(compass());
+  app.use(sass.middleware({
+         src: __dirname + '/public/sass',  
+         dest: __dirname + '/public/stylesheets', //where css should go
+         debug: true 
+         })
+  );
 });
 
 //facebook logins
