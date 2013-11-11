@@ -9,13 +9,16 @@ var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+
+var stylus = require('stylus');
+var nib = require('nib');
+
 var User = require('./models/user.js');
 var YogaClass = require('./models/yogaClass.js');
 var Massage = require('./models/massage.js');
 var InAppMessage = require('./models/inAppMessage.js');
 var FacebookPost = require('./models/facebookPost.js');
-var compass = require('node-compass');
-var sass = require('node-sass');
+
 //connect to the database
 mongoose.connect(process.env.MONGOHQ_URL);
 //declare app variable
@@ -23,20 +26,18 @@ var app = express();
 
 //middleware stack
 app.configure(function() {
-  app.use(express.static('public'));
   app.use(express.cookieParser());
   app.use(express.bodyParser());
   app.use(express.session({ secret: process.env.SUPER_SECRET_SESSIONS_KEY}));
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(app.router);
-  app.use(compass());
-  app.use(sass.middleware({
-         src: __dirname + '/public/sass',  
-         dest: __dirname + '/public/stylesheets', //where css should go
-         debug: true 
-         })
-  );
+  app.set('views', __dirname + '/views');
+  app.set('view engine', 'jade');
+  app.use(stylus.middleware({
+    src: __dirname + '/public/styl',
+    compile: compile }));
+  app.use(express.static(__dirname+'public'));
 });
 
 //facebook logins

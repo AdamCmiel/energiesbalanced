@@ -6,8 +6,9 @@
     "passport":  "",
     "passport-facebook":"",
     "underscore":"",
-    "node-sass": "",
-    "node-compass": ""
+    "jade": "*",
+    "stylus": "*",
+    "nib": "*"
   },
   "name":     "EnergiesBalanced",
   "version":  "0.0.1",
