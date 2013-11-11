@@ -139,6 +139,10 @@ app.put('/api/message/create', InAppMessage.create);
 app.get('/api/fb_post/user/:id', FacebookPost.getByUserId);
 app.put('/api/fb_post/create', FacebookPost.create);
 
+app.get('/', function(req, res){
+  res.render('index');
+})
+
 app.use(express.logger());
 app.use(express.static(__dirname + '/public'));
 var port = process.env.PORT || 5000;
