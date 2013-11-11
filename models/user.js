@@ -28,7 +28,7 @@ User.create = function(data){
 
 User.currentUser = function(session, callback){
   console.log('User' + session.passport.user);
-  User.find({facebook_id: session.passport.user}).limit(1).exec(function(err, users) {
+  User.find({facebook_id: session.passport.user.facebook_id}).limit(1).exec(function(err, users) {
     callback(users[0]);
   });
 };
