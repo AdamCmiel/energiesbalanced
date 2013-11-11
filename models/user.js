@@ -27,10 +27,16 @@ User.create = function(data){
 };
 
 User.currentUser = function(session, callback){
-  console.log('User' + session.passport.user);
-  User.find({facebook_id: session.passport.user.facebook_id}).limit(1).exec(function(err, users) {
-    callback(users[0]);
-  });
+  if (session && 
+      session.passport && 
+      session.passport.user && 
+      session.passport.user.facebook_id){
+    User.find({facebook_id: session.passport.user.facebook_id}).limit(1).exec(function(err, users) {
+      callback(users[0]);
+    });
+  } else{
+    callback({});
+  }
 };
 
 User.getUsers = function(req, res){
