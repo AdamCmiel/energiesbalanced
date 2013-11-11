@@ -18,7 +18,7 @@ $(document).ready(function(){
 	    },
 	    logout: function(){
 	    	currentUser = null;
-	    	$.get('/api/logout', function(){});
+	    	router.navigate('/api/logout');
 	    }
 	});
 
