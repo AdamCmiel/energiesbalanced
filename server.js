@@ -83,10 +83,13 @@ app.get('/auth/facebook/callback',
 
 //sessions relay
 app.get('/session', function(req, response){
-  response.send({
-    session: req.session,
-    currentUser: User.currentUser(req.session)
-  });
+  User.currentUser(req.session, function (currentUser) {
+    response.send({
+      session: req.session,
+      currentUser: currentUser
+    });
+  })
+
 });
 
 app.get('/logout', function(req, res){

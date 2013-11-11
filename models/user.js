@@ -26,15 +26,10 @@ User.create = function(data){
   newUser.save();
 };
 
-User.currentUser = function(session){
+User.currentUser = function(session, callback){
   console.log('User' + session.passport.user);
   User.find({facebook_id: session.passport.user}).limit(1).exec(function(err, users) {
-    if (err) return null
-    if (users.length == 1) {
-      return users[0]
-    } else {
-      return null
-    }
+    callback(users[0]);
   });
 };
 
