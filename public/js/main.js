@@ -1,8 +1,10 @@
+require.config({
+	baseUrl: 'js/vendor'
+});
 require([ 
   "jquery", 
   "underscore", 
-  "backbone"
-  
+  "backbone",  
 ], function($, _, Backbone) {
 $(document).ready(function(){
         var currentUser = null;        

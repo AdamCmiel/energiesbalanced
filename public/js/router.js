@@ -16,8 +16,8 @@ define([
 			$.get('/api/session', function(data){
 				currentUser = data.currentUser;
 				if (currentUser && currentUser.facebook_id){
-					router.navigate('nav', {trigger:true});
-				} else router.navigate('sign_in', {trigger: true});
+					this.navigate('nav', {trigger:true});
+				} else this.navigate('sign_in', {trigger: true});
 			});
 		},
 		loadSignIn: function(){
@@ -30,7 +30,7 @@ define([
 	    },
 	    logout: function(){
 	    	currentUser = null;
-	    	router.navigate('/api/logout');
+	    	this.navigate('/api/logout');
 	    }
 
 	});
@@ -39,7 +39,7 @@ define([
 
 	function loggedIn(){
 		if (!currentUser){
-			router.navigate('/');
+			this.navigate('/');
 		};
 	};
 
