@@ -21,7 +21,8 @@ define([
             },
             loadNav: function(){
             		SessionsController.navLoggedIn();
-                    navView.render();
+                    $('.conatiner *').remove();
+                    $('.container').html($('#navTemplate').html());
             },
             logout: function(){
                     SessionsController.logout();
