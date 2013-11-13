@@ -1,7 +1,7 @@
 define([
 	'jquery',
 	'underscore',
-	'Backbone',
+	'backbone',
 	'jade',
 	'models/currentUser'
 ], function($, _, Backbone, jade, CurrentUser){
