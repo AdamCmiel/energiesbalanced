@@ -1,13 +1,20 @@
 require.config({
-	baseUrl: 'js/vendor'
+	baseUrl: 'js/vendor',
+	paths: {
+		models: '../models'
+	}
 });
 require([ 
   "jquery", 
   "underscore", 
-  "backbone",  
-], function($, _, Backbone) {
+  "backbone",
+  "models/currentUser"  
+], function($, _, Backbone, CurrentUser) {
 $(document).ready(function(){
-        var currentUser = null;        
+
+        var currentUser = new CurrentUser();
+        //currentUser.fetch();        
+
         var Router = Backbone.Router.extend({
                 routes:{
                         "/": "checkUser",
@@ -33,12 +40,29 @@ $(document).ready(function(){
         var router = new Router();
 
         function checkUserAndNavigate(){
+        	if(currentUser&& currentUser.facebook_id){
+        		router.navigate('nav', {trigger: true});
+        	} else{
+        		currentUser.fetch({
+        			success: function(user){
+        				if(user && user.facebook_id){
+        					router.navigate('nav', {trigger:true});
+                        } else router.navigate('sign_in', {trigger: true});
+        			},
+        			error: function(error){
+        				alert(error);
+        			}
+        		});
+        	};
+
+        	/*
                 $.get('/api/session', function(data){
                         currentUser = data.currentUser;
                         if (currentUser && currentUser.facebook_id){
                                 router.navigate('nav', {trigger:true});
                         } else router.navigate('sign_in', {trigger: true});
                 });
+            */
         };
 
         function loggedIn(){

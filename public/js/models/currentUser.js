@@ -1,8 +1,6 @@
 define(['backbone'], function(Backbone){
-	var currentUser = Backbone.Model.extend({
-		urlRoot: '/api/users/current',
-
-	})
-
-
+	var CurrentUser = Backbone.Model.extend({
+		urlRoot: '/api/users/current'
+	});
+	return CurrentUser;
 });
