@@ -9,20 +9,11 @@ html
     link(rel='icon',href='/img/om_favicon.jpg')
     link(rel='stylesheet',href='/stylesheets/reset.css')
     link(rel='stylesheet',href='/stylesheets/main.css')
-  body(ontouchstart="")
-    header
-      h1
-         |Energies Balanced
-    footer
-      p Here at Energies Balanced we support the human experience with love and kindness.  We do not turn anyone away from the practice of yoga due to money. Yoga is a community of sharing and learning. It is about the union of the self!  If you are not able to pay the full class price still attend class and make a donation. 
-      p.copyright
-       |&#169; 2013 Energies Balanced &#2384;
-      p page not rendered
-    script(data-main='js/main' src='js/vendor/require.js')
-  script(type='text/template',id='splashPage')
+    script(type='text/template',id='splashPage')
       header
         h1
           |Energies Balanced - V2
+        div#currentUser test
       .container
         .launchLogo.logo
         a(href="")
@@ -33,43 +24,55 @@ html
         p.copyright
           |&#169; 2013 Energies Balanced &#2384;
    
-  script(type='text/template',id='appShell')
-    header
-      .logo#headerLogo
-      h1.navH1.mobile EB
-      h1.navH1.nonMobile EnergiesBalanced
-      img(src='http://graph.facebook.com/<%= imgUrl %>/picture').navFace 
+    script(type='text/template',id='appShell')
+      header
+        .logo#headerLogo
+        h1.navH1.mobile EB
+        h1.navH1.nonMobile EnergiesBalanced
+      .container
+    script(type='text/template',id='currentUserTemplate')
+      img(src='http://graph.facebook.com/<%= facebook_id %>/picture').navFace 
       h2.navH2
-        |Hello, <%= firstName %>
-    .container
-  script(type='text/template',id='navTemplate')
-    nav.mainNav
-      ul
-        |<%= listItems %>
-  script(type="text/template",id='navLiTemplate')
-    li(class='<%=li_class%>')
-      //a
-        p <%=li_text%>
-  script(type='text/template',id='scheduleTemplate')
-    nav.dayRibbon
-      ul
-        li Monday
-        li Tuesday
-        li Wednesday
-        li Thursday
-        li Friday
-        li Saturday
-        li Sunday
-    ul.classesTaught
-  script(type='text/template',id='classLi')
-    li
-      .row
-        h3.classTitle
-          |<%= classTitle %>
-        p.classLocation
-          |<%= classLocation %>
-      .row
-        p.classTime
-          |<%= classTime %>
-        p.classDescription.truncated
-          |<%= classDescription %>
+        |Hello, <%= first_Name %>
+    script(type='text/template',id='navTemplate')
+      nav.mainNav
+        ul
+          |<%= listItems %>
+    script(type="text/template",id='navLiTemplate')
+      li(class='<%=li_class%>')
+        //a
+          p <%=li_text%>
+    script(type='text/template',id='scheduleTemplate')
+      nav.dayRibbon
+        ul
+          li Monday
+          li Tuesday
+          li Wednesday
+          li Thursday
+          li Friday
+          li Saturday
+          li Sunday
+      ul.classesTaught
+    script(type='text/template',id='classLi')
+      li
+        .row
+          h3.classTitle
+            |<%= classTitle %>
+          p.classLocation
+            |<%= classLocation %>
+        .row
+          p.classTime
+            |<%= classTime %>
+          p.classDescription.truncated
+            |<%= classDescription %>
+    script(data-main='js/main' src='js/vendor/require.js')
+  body(ontouchstart="")
+    header
+      h1
+         |Energies Balanced
+    footer
+      p Here at Energies Balanced we support the human experience with love and kindness.  We do not turn anyone away from the practice of yoga due to money. Yoga is a community of sharing and learning. It is about the union of the self!  If you are not able to pay the full class price still attend class and make a donation. 
+      p.copyright
+       |&#169; 2013 Energies Balanced &#2384;
+      p page not rendered
+  

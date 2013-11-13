@@ -11,10 +11,18 @@ require([
   "jquery", 
   "underscore", 
   "backbone",
+  "jade",
   "models/currentUser",
+  "views/currentUserView",
   "controllers/sessionsController",
   "routers/router"
-], function($, _, Backbone, CurrentUser, SessionsController, Router) {
+], function($, _, Backbone, jade,
+/*models*/  CurrentUser, 
+/*views*/   CurrentUserView, 
+/*ctrls*/   SessionsController, 
+/*routers*/ Router) {
 
-        Router.start();
+//application code
+    Router.start();
+
 });
