@@ -9,16 +9,16 @@ html
     link(rel='icon',href='/img/om_favicon.jpg')
     link(rel='stylesheet',href='/stylesheets/reset.css')
     link(rel='stylesheet',href='/stylesheets/main.css')
-    script(src='/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js')
   body(ontouchstart="")
     header
       h1
-         |Energies Balanced - V2
+         |Energies Balanced
     footer
       p Here at Energies Balanced we support the human experience with love and kindness.  We do not turn anyone away from the practice of yoga due to money. Yoga is a community of sharing and learning. It is about the union of the self!  If you are not able to pay the full class price still attend class and make a donation. 
       p.copyright
        |&#169; 2013 Energies Balanced &#2384;
       p page not rendered
+    script(data-main='js/main' src='js/require.js')
   script(type='text/template',id='splashPage')
       header
         h1
@@ -32,13 +32,7 @@ html
         p Here at Energies Balanced we support the human experience with love and kindness.  We do not turn anyone away from the practice of yoga due to money. Yoga is a community of sharing and learning. It is about the union of the self!  If you are not able to pay the full class price still attend class and make a donation. 
         p.copyright
           |&#169; 2013 Energies Balanced &#2384;
-  script(src='js/jquery.js')
-  script window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.js"><\/script>')
-  script(src='js/vendor/bootstrap.min.js')
-  script(src='js/plugins.js')
-  script(src="js/underscore.js")
-  script(src="js/backbone.js")
-  script(src='js/application.js')
+   
   script(type='text/template',id='appShell')
     header
       .logo#headerLogo
