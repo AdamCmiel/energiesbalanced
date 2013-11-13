@@ -16,12 +16,12 @@ define([
             checkUser: SessionsController.checkUser(),
             loadSignIn: function(){
             	SessionsController.loggedIn();
-                $('body *').remove();
+                $('body').children.remove();
                 $('body').html($('#splashPage').html());
             },
             loadNav: function(){
             		//SessionsController.navLoggedIn();
-                    $('.conatiner *').remove();
+                    $('.container').children().remove();
                     $('.container').html($('#navTemplate').html());
             },
             logout: function(){
