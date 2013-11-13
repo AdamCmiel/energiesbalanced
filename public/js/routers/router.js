@@ -26,9 +26,6 @@ define([
             logout: function(){
                     SessionsController.logout();
                     this.navigate('/api/logout');
-            },
-            log: function(){
-                console.log();
             }
     }));
 	return router;
