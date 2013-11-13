@@ -1,39 +1,47 @@
 require.config({
 	baseUrl: 'js/vendor',
 	paths: {
-		models: '../models'
+		models: '../models',
+        views: '../views',
+        controllers: '../controllers',
+        routers: '../routers'
 	}
 });
 require([ 
   "jquery", 
   "underscore", 
   "backbone",
-  "models/currentUser"  
-], function($, _, Backbone, CurrentUser) {
-$(document).ready(function(){
+  "models/currentUser",
+  "controllers/sessionsController",
+  "routers/router"
+], function($, _, Backbone, CurrentUser, SessionsController, Router) {
 
-        var currentUser = new CurrentUser();
-        //currentUser.fetch();        
+
+        /*var currentUser = new CurrentUser();
+        currentUser.fetch();        
 
         var Router = Backbone.Router.extend({
-                routes:{
+            initialize:{
+                Backbone.history.start({pushState: true})
+            },
+            routes:{
                         "/": "checkUser",
                         "sign_in": "loadSignIn",
                         "nav": "loadNav",
                         "logout": "logout"
-                },
-                checkUser: checkUserAndNavigate('/nav'),
-                loadSignIn: function(){
-                    $('body *').hide();
-                    $('body').append($('#splashPage').html());
-                },
+            },
+            checkUser: SessionsController.checkUser,
+            loadSignIn: function(){
+                $('body *').hide();
+                $('body').append($('#splashPage').html());
+            },
             loadNav: function(){
             		navLoggedIn();
                     navView.render();
             },
             logout: function(){
                     currentUser = null;
-                    router.navigate('/api/logout');
+                    this.navigate('/api/logout');
             }
         });
 
@@ -62,7 +70,7 @@ $(document).ready(function(){
                                 router.navigate('nav', {trigger:true});
                         } else router.navigate('sign_in', {trigger: true});
                 });
-            */
+            
         };
 
         function loggedIn(){
@@ -77,6 +85,8 @@ $(document).ready(function(){
         	};
         };
 
-        Backbone.history.start({pushState: true});
-});
+        //Backbone.history.start({pushState: true});
+        */
+        Router.start();
+        Router.log();
 });
