@@ -16,7 +16,7 @@ define([
             checkUser: SessionsController.checkUser(),
             loadSignIn: function(){
             	SessionsController.loggedIn();
-                $('body').children.remove();
+                $('body').children().remove();
                 $('body').html($('#splashPage').html());
             },
             loadNav: function(){
