@@ -16,7 +16,7 @@ define([
     	            currentUser.fetch({
     	                success: function(user){
     	                	console.log(user);
-    	                    if(user && user.facebook_id){
+    	                    if(user && user.attributes && user.attributes.facebook_id){
     	                        Backbone.history.navigate('nav', {trigger:true});
     	                    } else Backbone.history.navigate('sign_in', {trigger: true});
     	                },
