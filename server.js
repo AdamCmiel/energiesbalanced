@@ -32,6 +32,7 @@ app.configure(function() {
   app.use(express.session({ secret: process.env.SUPER_SECRET_SESSIONS_KEY}));
   app.use(passport.initialize());
   app.use(passport.session());
+  app.use(express.static(__dirname+'/public'));
   app.use(app.router);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
@@ -43,7 +44,6 @@ app.configure(function() {
        .use(nib())
       }
   }));
-  app.use(express.static(__dirname+'public'));
 });
 
 //facebook logins
@@ -143,12 +143,13 @@ app.get('/', function(req, res){
   res.render('index');
 });
 
-/*app.get('*', function(req, res){
-  res.redirect('/');
-})*/
+app.get('/*', function(req, res){
+  res.render('index');
+});
+/**/
 
 app.use(express.logger());
-app.use(express.static(__dirname + '/public'));
+//app.use(express.static(__dirname + '/public'));
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
   console.log("Listening on " + port);
