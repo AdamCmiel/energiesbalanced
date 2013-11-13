@@ -20,7 +20,7 @@ define([
                 $('body').html($('#splashPage').html());
             },
             loadNav: function(){
-            		SessionsController.navLoggedIn();
+            		//SessionsController.navLoggedIn();
                     $('.conatiner *').remove();
                     $('.container').html($('#navTemplate').html());
             },
