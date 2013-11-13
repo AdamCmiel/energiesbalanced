@@ -107,12 +107,9 @@ app.get('/api/logout', function(req, res){
 
 //Users API
 app.get('/api/users', User.getUsers);
+app.get('/api/users/current', User.getCurrentUser);
 app.get('/api/users/:facebook_id', User.getUserById);
-app.get('/api/users/current', function(req, res){
-  User.currentUser(req.session, function(currentUser){
-    res.send({currentUser: currentUser});
-  });
-});
+
 //app.delete('api/users/all', User.deleteAll);
 
 //Classes API

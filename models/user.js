@@ -51,6 +51,12 @@ User.getUserById = function(req, res){
   });
 };
 
+User.getCurrentUser = function(req, res){
+  User.currentUser(req.session, function (currentUser) {
+    res.send(currentUser);
+  });
+};
+
 /*
 User.deleteAll = function(req, res){
   User.remove(function(err){
