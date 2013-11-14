@@ -12,8 +12,8 @@ html
     script(type='text/template',id='splashPage')
       header
         h1
-          |Energies Balanced - V2
-        div#currentUser test
+          |Energies Balanced
+        div#currentUser
       .container
         .launchLogo.logo
         a(href="")
@@ -37,14 +37,9 @@ html
     script(type='text/template',id='navTemplate')
       nav.mainNav
         ul
-          li
-            a Yoga Schedule
-          li
-            a Massage
-          li
-            a Post on Facebook
-          li
-            a Donate
+        each url, val in {'Yoga Schedule': 'schedule', 'Massage': 'massage', 'Post on Facebook': 'fb_post', 'Donate': 'donate'}
+          li(class=val)
+            a(data-link=url)= val
     script(type="text/template",id='navLiTemplate')
       li(class='<%=li_class%>')
         //a
@@ -52,13 +47,8 @@ html
     script(type='text/template',id='scheduleTemplate')
       nav.dayRibbon
         ul
-          li Monday
-          li Tuesday
-          li Wednesday
-          li Thursday
-          li Friday
-          li Saturday
-          li Sunday
+        each day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+          li=day
       ul.classesTaught
     script(type='text/template',id='classLi')
       li
@@ -77,7 +67,7 @@ html
     header
       h1 Energies Balanced
       #currentUser
-    .container     
+    .container
     footer
       p Here at Energies Balanced we support the human experience with love and kindness.  We do not turn anyone away from the practice of yoga due to money. Yoga is a community of sharing and learning. It is about the union of the self!  If you are not able to pay the full class price still attend class and make a donation. 
       p.copyright

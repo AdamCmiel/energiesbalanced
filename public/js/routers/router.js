@@ -18,6 +18,7 @@ define([
             	SessionsController.loggedIn();
                 $('body').children().remove();
                 $('body').html($('#splashPage').html());
+                this.loadNav();
             },
             loadNav: function(){
             		//SessionsController.navLoggedIn();

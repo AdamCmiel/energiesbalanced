@@ -1,0 +1,67 @@
+!!!5
+html
+  head
+    link(href='stylesheets/admin.css', rel='stylesheet')
+    script(data-main='/js/admin/admin_main' src='/js/vendor/require.js')
+    script(type='text/template' id='classesTemplate')
+      sidebar.leftSidebar
+        button#showClasses Show Classes
+      sidebar.rightSidebar
+        button#createClass Create Class
+    script(type='text/template' id='classInputTemplate')
+      form
+      
+        label Name
+        input(type='text' name='name' placeholder='Class Name')
+
+        label Location
+        select#locationSelector 
+          option(value="Energies Balanced" selected="selected") Energies Balanced
+          option(value="Lady Bird Lake YMCA") Lady Bird Lake YMCA
+          option(value="Clayworks Studio") Clayworks Studio
+
+        label Instructor
+        select#instructorSelector 
+          option(value="Lisa" selected="selected") Lisa
+          option(value="Marissa") Marissa
+
+        label Day
+        select#daySelector
+          each day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+            option(value=day)= day
+
+        label Time
+        select#hourSelector
+          each hour in ['1','2','3','4','5','6','7','8','9','10','11','12']
+            option(value=hour)= hour
+        select#quarterSelector
+          each quarter in [":15",":30",":45"]
+            option(value=quarter)= quarter
+        select#meridian
+          each m in ["AM","PM"]
+            option(value=m)= m
+
+        label Check for once only, default weekly
+        input(type='checkbox' name='onceOnly')
+
+        label Duration (min)
+        input(type='num' name='duration' placeholder='60') 
+
+        label Style      
+        select#styleSelector 
+          each style in ["Iyengar","Ashtanga","Ashtanga Fusion"]
+            option(value=style)= style
+
+        label Suggested Donation ($)
+        input(type='num' name='donation' placeholder='10' value="10")
+        input(type='submit' value='Create')
+  body
+    header
+      h1 Energies Balanced Admin Page
+    .container
+      nav
+        ul
+        each val in ['Classes', 'Massage', 'Users']
+          li(class=val)=val
+            
+

@@ -3,10 +3,12 @@ var Schema = mongoose.Schema;
 //create class model
 
 var yogaClassSchema = new Schema({
+	name: String,
     instructor: String,
     location: String,
-    date: Date,
+    day: String,
     time: String,
+    onceOnly: Boolean, 
     duration: String,
     sytle: String,
     suggestedDonation: String,
@@ -32,8 +34,8 @@ YogaClass.getClassesByLocation = function(req, res){
 });
 };
 
-YogaClass.getClassesByDate = function(req, res){
-	YogaClass.find({date: req.params.date}).exec(function (err, classesReturned){
+YogaClass.getClassesByDay = function(req, res){
+	YogaClass.find({day: req.params.day}).exec(function (err, classesReturned){
 	res.send({"classes": classesReturned});
 });
 };

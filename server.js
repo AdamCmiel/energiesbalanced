@@ -110,22 +110,22 @@ app.get('/api/users', User.getUsers);
 app.get('/api/users/current', User.getCurrentUser);
 app.get('/api/users/:facebook_id', User.getUserById);
 
-//app.delete('api/users/all', User.deleteAll);
+//app.delete('api/users/:id', User.deleteAll);
 
 //Classes API
 app.get('/api/yoga_classes/instructor/:instructor', YogaClass.getClassesByInstructor);
 app.get('/api/yoga_classes/location/:location', YogaClass.getClassesByLocation);
-app.get('/api/yoga_classes/date/:date', YogaClass.getClassesByDate);
+app.get('/api/yoga_classes/date/:date', YogaClass.getClassesByDay);
 app.get('/api/yoga_classes/participants/:id', YogaClass.getParticipants);
-app.put('/api/yoga_classes/create', YogaClass.create);
-app.put('/api/yoga_classes/update/:id', YogaClass.updateClass);
-//app.delete('/api/yoga_classes/delete/:id', YogaClass.deleteClass);
+app.post('/api/yoga_classes', YogaClass.create);
+app.post('/api/yoga_classes/:id', YogaClass.updateClass);
+//app.delete('/api/yoga_classes/:id', YogaClass.deleteClass);
 
 //Massage API
 app.get('/api/massage/date/:date', Massage.getByDate);
 app.get('/api/massage/patient/:patient', Massage.getByPatient);
-app.put('/api/massage/create', Massage.create);
-//app.delete('/api/massage/delete/:id', Massage.deleteMassage);
+app.put('/api/massage', Massage.create);
+//app.delete('/api/massage/:id', Massage.deleteMassage);
 
 //InAppMessage API
 app.get('/api/message/recipient/:id', InAppMessage.getByRecipient);
@@ -134,10 +134,18 @@ app.put('/api/message/create', InAppMessage.create);
 
 //FacebookPost API
 app.get('/api/fb_post/user/:id', FacebookPost.getByUserId);
-app.put('/api/fb_post/create', FacebookPost.create);
+app.put('/api/fb_post/', FacebookPost.create);
 
 app.get('/', function(req, res){
   res.render('index');
+});
+
+app.get('/admin', function(req, res){
+  res.render('admin');
+});
+
+app.get('/admin*', function(req, res){
+  res.render('admin');
 });
 
 app.get('/*', function(req, res){
