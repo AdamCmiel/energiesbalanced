@@ -22,6 +22,7 @@ define([
             loadNav: function(){
             		//SessionsController.navLoggedIn();
                     //$('.container').children().remove();
+                    $('header').html($('#signedInHeaderTemplate').html());
                     $('.container').html($('#navTemplate').html());
             },
             logout: function(){
