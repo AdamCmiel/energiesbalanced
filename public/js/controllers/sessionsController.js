@@ -8,7 +8,6 @@ define([
 	currentUser.fetch({success: function(data){
     console.log(data);
   }});
-	var currentUserView = new CurrentUserView({model: currentUser});
 
 	var SessionsController = {
 		checkUser: function(){
