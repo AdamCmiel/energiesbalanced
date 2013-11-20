@@ -66,4 +66,9 @@ YogaClass.deleteClass = function(req, res){
 	});
 };
 
+YogaClass.deleteAll = function(req, res){
+	YogaClass.remove({participants: ""});
+	res.send({"deleted":true});
+}
+
 module.exports = YogaClass;

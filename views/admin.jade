@@ -2,16 +2,17 @@
 html
   head
     link(href='stylesheets/admin.css', rel='stylesheet')
+    link(href='stylesheets/datetime.css', rel='stylesheet')
     script(data-main='/js/admin/admin_main' src='/js/vendor/require.js')
     script(type='text/template' id='classesTemplate')
-      sidebar.leftSidebar
-        button#showClasses Show Classes
-        #yogaClasses
       sidebar.rightSidebar
+        button#showClasses Refresh Classes
+        #yogaClasses
+      sidebar.leftSidebar
         button#createClass Create Class
     script(type='text/template' id='classInputTemplate')
+    
       form
-      
         label Name
         input(type='text' name='name' placeholder='Class Name')
 
@@ -26,21 +27,24 @@ html
           option(value="Lisa" selected="selected") Lisa
           option(value="Marissa") Marissa
 
-        label Day
-        select#daySelector
-          each day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-            option(value=day)= day
+        label Date
+        input(type='datetime' name='date' id='dateSelector')
 
-        label Time
-        select#hourSelector
-          each hour in ['1','2','3','4','5','6','7','8','9','10','11','12']
-            option(value=hour)= hour
-        select#quarterSelector
-          each quarter in [":15",":30",":45"]
-            option(value=quarter)= quarter
-        select#meridian
-          each m in ["AM","PM"]
-            option(value=m)= m
+        //
+          label Day
+          select#daySelector
+            each day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+              option(value=day)= day
+          label Time
+          select#hourSelector
+            each hour in ['1','2','3','4','5','6','7','8','9','10','11','12']
+              option(value=hour)= hour
+          select#quarterSelector
+            each quarter in [":15",":30",":45"]
+              option(value=quarter)= quarter
+          select#meridian
+            each m in ["AM","PM"]
+              option(value=m)= m
 
         label Check for once only, default weekly
         input(type='checkbox' name='onceOnly')
@@ -73,7 +77,7 @@ html
 
   body
     header
-      h1 Energies Balanced Admin Page
+      a(href='/admin') Energies Balanced Admin Page
     .container
       nav
         ul

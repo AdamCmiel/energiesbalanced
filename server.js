@@ -120,6 +120,7 @@ app.get('/api/yoga_classes/participants/:id', YogaClass.getParticipants);
 app.get('/api/yoga_classes', YogaClass.getClasses);
 app.post('/api/yoga_classes', YogaClass.create);
 app.put('/api/yoga_classes/:id', YogaClass.updateClass);
+app.delete('/api/yoga_classes/all', YogaClass.deleteAll);
 app.delete('/api/yoga_classes/:id', YogaClass.deleteClass);
 
 //Massage API

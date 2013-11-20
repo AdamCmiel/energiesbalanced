@@ -1,5 +1,25 @@
 form,
 input,
-select {
+select,
+label {
 	display: block;
+}
+
+.leftSidebar {
+	height: 800px;
+	float: left;
+	overflow: scroll;
+}
+
+.rightSidebar {
+	float: right;
+}
+
+.container {
+	width: 700px;
+	margin: 0 auto 0;
+}
+
+header {
+	text-align: center;
 }

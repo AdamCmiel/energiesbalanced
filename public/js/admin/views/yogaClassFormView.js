@@ -7,7 +7,7 @@ define([
 
 	var YogaClassFormView = Backbone.View.extend({
 		model: YogaClass,
-		el: '.rightSidebar',
+		el: '.leftSidebar',
 		initialize: function(){
 			this.render();
 			this.model.on('sync', this.resetSidebar, this);

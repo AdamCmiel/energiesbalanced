@@ -13,6 +13,7 @@ define([
 			this.collection.on('reset', this.render, this);
 		},
 		render: function(){
+			this.$el.empty();
 			this.collection.forEach(this.addOne, this);		
 		},
 		addOne: function(yogaClass){
