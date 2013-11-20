@@ -9,12 +9,10 @@ define([
   var CurrentUserView = Backbone.View.extend({
   	el: $('#currentUser'),
   	initialize: function(){
-  		this.render();
+  		this.model.on('change', this.render, this); 
   	},
   	render: function(){
-  		if(this.model && this.model.attributes.facebook_id){
-  			this.$el.html(this.template(this.model.toJSON()));
-  		};
+    	this.$el.html(this.template(this.model.toJSON()));
   	},
   	template: _.template($('#currentUserTemplate').html())
   })
