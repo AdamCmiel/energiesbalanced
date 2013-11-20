@@ -117,9 +117,10 @@ app.get('/api/yoga_classes/instructor/:instructor', YogaClass.getClassesByInstru
 app.get('/api/yoga_classes/location/:location', YogaClass.getClassesByLocation);
 app.get('/api/yoga_classes/date/:date', YogaClass.getClassesByDay);
 app.get('/api/yoga_classes/participants/:id', YogaClass.getParticipants);
+app.get('/api/yoga_classes', YogaClass.getClasses);
 app.post('/api/yoga_classes', YogaClass.create);
-app.post('/api/yoga_classes/:id', YogaClass.updateClass);
-//app.delete('/api/yoga_classes/:id', YogaClass.deleteClass);
+app.put('/api/yoga_classes/:id', YogaClass.updateClass);
+app.delete('/api/yoga_classes/:id', YogaClass.deleteClass);
 
 //Massage API
 app.get('/api/massage/date/:date', Massage.getByDate);

@@ -9,6 +9,5 @@ define([
 		model: YogaClass,
 		url: '/api/yoga_classes'
 	});
- 
 	return YogaClasses;
 });

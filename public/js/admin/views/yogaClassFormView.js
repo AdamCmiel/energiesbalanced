@@ -10,9 +10,11 @@ define([
 		el: '.rightSidebar',
 		initialize: function(){
 			this.render();
+			this.model.on('sync', this.resetSidebar, this);
 		},
 		render: function(){
-			this.$el.html(this.template(this.model.toJSON()));
+			this.button = $('#createClass').detach();
+			this.$el.append(this.template(this.model.toJSON()));
 		},
 		template: _.template($('#classInputTemplate').html()),
 		events: {
@@ -34,12 +36,20 @@ define([
 				location: location,
 				instructor: instructor,
 				day: day,
+				time: time,
 				onceOnly: onceOnly,
 				duration: duration,
-				style: style
+				style: style,
+				suggestedDonation: suggestedDonation,
+				participants: ""
 			}, {
 				success: function(){
 					alert("Class saved successfully!");
+					Backbone.history.navigate('/admin', {trigger: true});
+				},
+				error: function(err){
+					console.log(err);
+					alert("Error, check the log");
 				}
 			});
 		}

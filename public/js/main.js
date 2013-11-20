@@ -12,11 +12,12 @@ require([
   "underscore", 
   "backbone",
   "jade",
+  "vent",
   "models/currentUser",
   "views/currentUserView",
   "controllers/sessionsController",
   "routers/router"
-], function($, _, Backbone, jade,
+], function($, _, Backbone, jade, vent,
 /*models*/  CurrentUser, 
 /*views*/   CurrentUserView, 
 /*ctrls*/   SessionsController, 

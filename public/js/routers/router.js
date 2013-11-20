@@ -13,7 +13,7 @@ define([
                         "nav": "loadNav",
                         "logout": "logout"
             },
-            checkUser: SessionsController.checkUser(),
+            checkUser: SessionsController.checkUser('/nav'),
             loadSignIn: function(){
             	SessionsController.loggedIn();
                 $('body').children().remove();

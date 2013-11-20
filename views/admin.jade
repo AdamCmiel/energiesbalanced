@@ -6,6 +6,7 @@ html
     script(type='text/template' id='classesTemplate')
       sidebar.leftSidebar
         button#showClasses Show Classes
+        #yogaClasses
       sidebar.rightSidebar
         button#createClass Create Class
     script(type='text/template' id='classInputTemplate')
@@ -55,6 +56,21 @@ html
         label Suggested Donation ($)
         input(type='num' name='donation' placeholder='10' value="10")
         input(type='submit' value='Create')
+    script(type='text/template' id='classTemplate')
+      li
+        h1 <%= name %>
+        h2 <%= instructor %>
+        h3 <%= location %>
+        h3 <%= day %>, <%= time %>, <%= duration %>min
+        h3 <%= style %> Yoga
+        h3 Donation: $<%= suggestedDonation %>
+        h3 Participants:
+        ul
+          <% _.each(participants.split(","), function(participant) { %>
+          li 
+            p <%= participant %>
+          <% }); %>
+
   body
     header
       h1 Energies Balanced Admin Page

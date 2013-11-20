@@ -5,13 +5,11 @@ define([
 ], function(Backbone, CurrentUser, CurrentUserView){
 
 	var currentUser = new CurrentUser();
-	currentUser.fetch({success: function(data){
-    console.log(data);
-  }});
+	currentUser.fetch();
 	var currentUserView = new CurrentUserView({model: currentUser});
 
 	var SessionsController = {
-		checkUser: function(){
+		checkUser: function(path){
     	        if(currentUser&& currentUser.facebook_id){
     	            Backbone.history.navigate('nav', {trigger: true});
     	        } else{
@@ -19,7 +17,7 @@ define([
     	                success: function(user){
     	                	console.log(user);
     	                    if(user && user.get('facebook_id')){
-    	                        Backbone.history.navigate('nav', {trigger:true});
+    	                        Backbone.history.navigate(path, {trigger:true});
     	                    } else Backbone.history.navigate('sign_in', {trigger: true});
     	                },
     	                error: function(error){

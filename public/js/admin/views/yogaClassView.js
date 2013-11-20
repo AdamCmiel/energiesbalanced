@@ -1,18 +1,16 @@
 define([
 	'jquery',
 	'underscore',
-	'backbone',
-	'models/yogaClass'
-], function ($,_,Backbone,YogaClass) {
+	'backbone'
+], function ($,_,Backbone) {
 
 	var YogaClassView = Backbone.View.extend({
-		model: YogaClass,
 		tagname: 'li',
 		initialize: function(){
-			this.render();
+			_.bindAll(this, 'render');
 		},
 		render: function(){
-			this.$el.html(this.template(this.model.toJSON()));
+			return this.template(this.model.attributes);
 		},		
 		template: _.template($('#classTemplate').html())
 	});
