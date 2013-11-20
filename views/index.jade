@@ -25,8 +25,10 @@ html
    
     script(type='text/template',id='signedInHeaderTemplate')
       .logo#headerLogo
-      h1.navH1.mobile EB
-      h1.navH1.nonMobile EnergiesBalanced
+      a(href='/')
+        h1.navH1.mobile EB
+      a(href='/')
+        h1.navH1.nonMobile EnergiesBalanced
       #currentUser
     script(type='text/template',id='currentUserTemplate')
       img(src!='http://graph.facebook.com/<%= facebook_id %>/picture').navFace 
@@ -37,7 +39,7 @@ html
         ul
         each url, val in {'Yoga Schedule': 'schedule', 'Massage': 'massage', 'Post on Facebook': 'fb_post', 'Donate': 'donate'}
           li(class=val)
-            a(data-link=url)= val
+            a(href=url)= val
     script(type="text/template",id='navLiTemplate')
       li(class='<%=li_class%>')
         //a
@@ -46,7 +48,7 @@ html
       nav.dayRibbon
         ul
         each day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-          li=day
+          li(class=day)= day
       ul.classesTaught
     script(type='text/template',id='classLi')
       li
