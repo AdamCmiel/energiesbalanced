@@ -1,7 +1,8 @@
 define([
 	'backbone',
+    'views/currentUserView'
 	'controllers/sessionsController'
-	], function (Backbone, SessionsController) {
+	], function (Backbone, CurrentUserView, SessionsController) {
 
 	var router = new (Backbone.Router.extend({
             start: function(){
