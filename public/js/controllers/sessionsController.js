@@ -6,6 +6,7 @@ define([
 
 	var currentUser = new CurrentUser();
 	currentUser.fetch();
+	var currentUserView = new CurrentUserView({model: currentUser});
 
 	var SessionsController = {
 		checkUser: function(){
@@ -36,7 +37,12 @@ define([
    	    },
    	    logout: function(){
    	    	currentUser = null;
-   	    }
-    };
+   	    },
+    
+    renderUser: function(){
+      currentUserView.render();
+    }
+  }
+
     return SessionsController;
 });

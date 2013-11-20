@@ -5,8 +5,6 @@ define([
 	'controllers/sessionsController'
 	], function (Backbone, CurrentUser, CurrentUserView, SessionsController) {
 
-    var currentUser = new CurrentUser();
-    currentUser.fetch();
 
 	var router = new (Backbone.Router.extend({
             start: function(){
@@ -28,9 +26,7 @@ define([
             		//SessionsController.navLoggedIn();
                     //$('.container').children().remove();
                     $('header').html($('#signedInHeaderTemplate').html());
-                    currentUser.fetch();
-                    var currentUserView = new CurrentUserView({model: currentUser});
-
+                    SessionsController.renderUser();
                     $('.container').html($('#navTemplate').html());
             },
             logout: function(){
