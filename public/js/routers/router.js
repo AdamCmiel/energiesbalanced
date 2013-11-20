@@ -1,6 +1,6 @@
 define([
 	'backbone',
-    'views/currentUserView'
+    'views/currentUserView',
 	'controllers/sessionsController'
 	], function (Backbone, CurrentUserView, SessionsController) {
 
