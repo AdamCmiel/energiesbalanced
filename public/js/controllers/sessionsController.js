@@ -31,7 +31,7 @@ define([
     	loggedIn: function(){
 			if (!currentUser){
 				Backbone.history.navigate('/');
-			};
+			} else return currentUser;
 		},
 		navLoggedIn: function(){
    	    	if(currentUser){

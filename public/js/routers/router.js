@@ -13,15 +13,15 @@ define([
                         "nav": "loadNav",
                         "logout": "logout"
             },
-            checkUser: SessionsController.checkUser('/nav'),
+            checkUser: SessionsController.checkUser(),
             loadSignIn: function(){
             	SessionsController.loggedIn();
                 $('body').children().remove();
-                $('body').html($('#splashPage').html());
+                $('body').html($('#signIn').html());
             },
             loadNav: function(){
             		//SessionsController.navLoggedIn();
-                    $('.container').children().remove();
+                    //$('.container').children().remove();
                     $('.container').html($('#navTemplate').html());
             },
             logout: function(){
