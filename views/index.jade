@@ -29,7 +29,7 @@ html
       h1.navH1.nonMobile EnergiesBalanced
       #currentUser
     script(type='text/template',id='currentUserTemplate')
-      img(src='http://graph.facebook.com/<%= facebook_id %>/picture').navFace 
+      img(src!='http://graph.facebook.com/<%= facebook_id %>/picture').navFace 
       h2.navH2
         |Hello, <%= first_name %>
     script(type='text/template',id='navTemplate')
