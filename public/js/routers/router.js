@@ -1,9 +1,15 @@
 define([
 	'backbone',
     'models/currentUser',
+    'collections/yogaClasses',
     'views/currentUserView',
+    'views/yogaClassesView',
 	'controllers/sessionsController'
-	], function (Backbone, CurrentUser, CurrentUserView, SessionsController) {
+	], function (Backbone,
+                 CurrentUser, YogaClasses,
+                 CurrentUserView, YogaClassesView,
+                 SessionsController
+                ){
 
 
 	var router = new (Backbone.Router.extend({
@@ -47,6 +53,9 @@ define([
             },
             renderSchedule: function(){
                 $('.container').html($('#scheduleTemplate').html());
+                var yogaClasses = new YogaClasses();
+                var yogaClassesView = new YogaClassesView({collection: yogaClasses});
+                yogaClasses.fetch({reset: true});
             }
     }));
 	return router;

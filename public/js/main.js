@@ -2,9 +2,10 @@ require.config({
 	baseUrl: 'js/vendor',
 	paths: {
 		models: '../models',
-        views: '../views',
-        controllers: '../controllers',
-        routers: '../routers'
+    collections: '../collections',
+    views: '../views',
+    controllers: '../controllers',
+    routers: '../routers'
 	}
 });
 require([ 

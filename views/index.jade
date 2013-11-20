@@ -45,6 +45,8 @@ html
         //a
           p <%=li_text%>
     script(type='text/template',id='scheduleTemplate')
+      ul#yogaClasses
+    script(type='text/template',id='scheduleRibbonTemplate')
       nav.dayRibbon
         ul
         each day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
@@ -62,6 +64,13 @@ html
             |<%= classTime %>
           p.classDescription.truncated
             |<%= classDescription %>
+    script(type='text/template' id='classTemplate')
+      li
+        h1 <%= style %> Yoga
+        h2 <%= instructor %>
+        h3 <%= location %>
+        h3 <%= time %>, <%= duration %>min
+        h3 Suggested Donation: $<%= suggestedDonation %>
     script(data-main='js/main' src='js/vendor/require.js')
   body(ontouchstart="")
     header
