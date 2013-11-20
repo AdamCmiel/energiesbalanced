@@ -1,8 +1,9 @@
 define([
 	'backbone',
+    'models/currentUser',
     'views/currentUserView',
 	'controllers/sessionsController'
-	], function (Backbone, CurrentUserView, SessionsController) {
+	], function (Backbone, CurrentUser, CurrentUserView, SessionsController) {
 
     var currentUser = new CurrentUser();
     currentUser.fetch();
