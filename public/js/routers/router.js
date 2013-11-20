@@ -23,6 +23,8 @@ define([
             		//SessionsController.navLoggedIn();
                     //$('.container').children().remove();
                     $('header').html($('#signedInHeaderTemplate').html());
+                    var currentUserView = new CurrentUserView({model: currentUser});
+
                     $('.container').html($('#navTemplate').html());
             },
             logout: function(){
