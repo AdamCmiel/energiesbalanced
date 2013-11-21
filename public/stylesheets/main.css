@@ -260,7 +260,7 @@ html {
   /* line 142, ../sass/main.sass */
   li {
     display: inline-block;
-    background: url("../img/cat.jpg") no-repeat;
+    /*background: url("../img/cat.jpg") no-repeat;*/
     background-size: 10%;
     width: 32%;
     height: 200px;
