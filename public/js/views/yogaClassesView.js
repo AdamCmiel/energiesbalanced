@@ -18,7 +18,6 @@ define([
 		},
 		addOne: function(yogaClass){
 			var yogaClassView = new YogaClassView({model: yogaClass});
-			console.log(this);
 			this.$el.append(yogaClassView.render());
 		}
 	});

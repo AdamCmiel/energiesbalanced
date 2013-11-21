@@ -31,16 +31,18 @@ define([
             },
             loadNav: function(){
             	SessionsController.navLoggedIn();
-                //$('.container').children().remove();
                 $('header').html($('#signedInHeaderTemplate').html());
                 
-                //put this back in
-                //SessionsController.renderUser();
                 $('.container').html($('#navTemplate').html());
                 $('li').on('click', 'a', function(e){
                     e.preventDefault();
                     Backbone.history.navigate('nav/'+$(e.target).attr('href'), {trigger:true});
                 });
+                $('header').on('click', 'a', function(e){
+                    e.preventDefault();
+                    Backbone.history.navigate('/', {trigger: true});
+                });
+                SessionsController.renderUser();
             },
             logout: function(){
                 SessionsController.logout();

@@ -10,7 +10,7 @@ define([
 
 	var SessionsController = {
 		checkUser: function(){
-    	        if(currentUser&& currentUser.facebook_id){
+    	        if(currentUser&& currentUser.get('facebook_id')){
     	            Backbone.history.navigate('nav', {trigger: true});
     	        } else{
     	            currentUser.fetch({
@@ -20,6 +20,8 @@ define([
     	                    } else Backbone.history.navigate('sign_in', {trigger: true});
     	                },
     	                error: function(error){
+                          console.log('error');
+                          console.log(error);
     	                    alert(error);
     	                }
     	            });
