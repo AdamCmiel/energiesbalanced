@@ -28,7 +28,6 @@ define([
             	SessionsController.loggedIn();
                 $('body').children().remove();
                 $('body').html($('#signIn').html());
-                Backbone.history.navigate('nav', {trigger:true});
             },
             loadNav: function(){
             	//SessionsController.navLoggedIn();
