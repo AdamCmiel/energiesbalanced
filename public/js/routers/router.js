@@ -30,7 +30,7 @@ define([
                 $('body').html($('#signIn').html());
             },
             loadNav: function(){
-            	//SessionsController.navLoggedIn();
+            	SessionsController.navLoggedIn();
                 //$('.container').children().remove();
                 $('header').html($('#signedInHeaderTemplate').html());
                 
@@ -55,6 +55,7 @@ define([
                 var yogaClasses = new YogaClasses();
                 var yogaClassesView = new YogaClassesView({collection: yogaClasses});
                 yogaClasses.fetch({reset: true});
+                SessionsController.renderUser();
             }
     }));
 	return router;
