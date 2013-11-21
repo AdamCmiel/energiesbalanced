@@ -13,7 +13,6 @@ define([
 			this.collection.on('reset', this.render, this);
 		},
 		render: function(){
-			alert('hello');
 			console.log(this.collection);
 			this.$el.empty();
 			this.collection.forEach(this.addOne, this);		

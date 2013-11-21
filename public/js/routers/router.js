@@ -42,10 +42,6 @@ define([
                     e.preventDefault();
                     Backbone.history.navigate('nav/'+$(e.target).attr('href'), {trigger:true});
                 });
-                $('header').on('click', 'a', function(e){
-                    e.preventDefault();
-                    Backbone.history.navigate('/', {trigger: true});
-                });
             },
             logout: function(){
                 SessionsController.logout();
