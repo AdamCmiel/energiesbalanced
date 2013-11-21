@@ -12,7 +12,6 @@ define([
   		this.model.on('change', this.render, this); 
   	},
   	render: function(){
-      console.log(this.model.toJSON());
     	this.$el.html(this.template(this.model.toJSON()));
   	},
   	template: _.template($('#currentUserTemplate').html())
