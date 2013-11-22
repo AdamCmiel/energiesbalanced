@@ -55,5 +55,6 @@ define([
                 SessionsController.renderUser();
             }
     }));
+  window.router = router;
 	return router;
 });

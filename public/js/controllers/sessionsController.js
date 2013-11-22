@@ -33,7 +33,8 @@ define([
     	},
     	loggedIn: function(){
 			if (!currentUser.get('facebook_id')){
-				Backbone.history.navigate('/');
+        alert('notloggedin');
+        Backbone.history.navigate('/', {trigger: true});
 			} else return currentUser;
 		},
 		navLoggedIn: function(){
