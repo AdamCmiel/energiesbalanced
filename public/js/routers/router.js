@@ -21,7 +21,8 @@ define([
                 "sign_in": "loadSignIn",
                 "nav": "loadNav",
                 "logout": "logout",
-                "nav/schedule": "renderSchedule"
+                "nav/schedule": "renderSchedule",
+                "_=_": "checkUser" 
             },
             checkUser: SessionsController.checkUser(),
             loadSignIn: function(){
