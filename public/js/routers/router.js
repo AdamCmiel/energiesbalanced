@@ -26,13 +26,10 @@ define([
             checkUser: SessionsController.checkUser(),
             loadSignIn: function(){
             	SessionsController.loggedIn();
-                $('body').children().remove();
-                $('body').html($('#signIn').html());
+                $('.container').html($('#signIn').html());
             },
             loadNav: function(){
             	SessionsController.navLoggedIn();
-                $('header').html($('#signedInHeaderTemplate').html());
-                
                 $('.container').html($('#navTemplate').html());
                 $('li').on('click', 'a', function(e){
                     e.preventDefault();
@@ -49,6 +46,7 @@ define([
                 this.navigate('/api/logout');
             },
             renderSchedule: function(){
+                SessionsController.loggedIn();
                 $('.container').html($('#scheduleTemplate').html());
                 var yogaClasses = new YogaClasses();
                 var yogaClassesView = new YogaClassesView({collection: yogaClasses});

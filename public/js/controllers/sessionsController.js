@@ -22,7 +22,7 @@ define([
     	                error: function(error){
                           console.log('error');
                           console.log(error);
-    	                    alert(error);
+    	                    alert('error');
     	                }
     	            });
     	        }
@@ -43,7 +43,7 @@ define([
     
     renderUser: function(){
       currentUserView.render();
-    }
+    },
   }
 
     return SessionsController;

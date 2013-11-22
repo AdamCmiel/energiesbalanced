@@ -13,6 +13,7 @@ html
       header
         h1
           |Energies Balanced
+        #currentUser
       .container
         .launchLogo.logo
         a(href="auth/facebook")
@@ -74,7 +75,11 @@ html
     script(data-main='js/main' src='js/vendor/require.js')
   body(ontouchstart="")
     header
-      h1 Energies Balanced
+      .logo#headerLogo
+      a(href='/')
+        h1.navH1.mobile EB
+      a(href='/')
+        h1.navH1.nonMobile EnergiesBalanced
       #currentUser
     .container
     footer
