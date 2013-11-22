@@ -7,7 +7,6 @@ html
     meta(name="description",content="")
     meta(name="viewport",content="width=device-width user-scalable=no",initial-scale=1,maximum-scale=1, )
     link(rel='icon',href='/img/om_favicon.jpg')
-    link(rel='stylesheet',href='/stylesheets/reset.css')
     link(rel='stylesheet',href='/stylesheets/main.css')
     script(type='text/template',id='signIn')
       header
@@ -38,9 +37,10 @@ html
     script(type='text/template',id='navTemplate')
       nav.mainNav
         ul
-        each url, val in {'Yoga Schedule': 'schedule', 'Massage': 'massage', 'Post on Facebook': 'fb_post', 'Donate': 'donate'}
-          li(class=val)
-            a(href=url)= val
+        each url, val in {'Yoga Schedule': 'schedule', 'Massage': 'massage', 'Message Us': 'message', 'Donate': 'donate'}
+          li(class=url)
+            a(href=url)
+              p= val
     script(type="text/template",id='navLiTemplate')
       li(class='<%=li_class%>')
         //a

@@ -2,7 +2,7 @@
 @import "compass"
 @import "compass/layout"
 @import "reset"
-@import url(http:fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300)
+//@import url(http:fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300)
 
 $color-primary: #8F9ACC
 $color-dacc:    #2E3242
@@ -39,6 +39,7 @@ $base-line-height: 36px
     background: $color-primary
     @include background-image(radial-gradient( center, ellipse cover, $color-primary 10%, $color-dacc 100%))
     font-family: "OpenSans-Light"
+    //comment
 
   header
     position: fixed
@@ -141,8 +142,6 @@ $base-line-height: 36px
 
   li
     display: inline-block
-    background: url('../img/cat.jpg') no-repeat
-    background-size: 10%
     width: 32%
     height: 200px
     position: relative
@@ -153,6 +152,7 @@ $base-line-height: 36px
       top: 150px
     a
       +stretch
+      
 
     @each $class in $nav-classes
       &.#{$class}
