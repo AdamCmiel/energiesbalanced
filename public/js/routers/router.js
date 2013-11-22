@@ -22,7 +22,7 @@ define([
                 "nav": "loadNav",
                 "logout": "logout",
                 "nav/schedule": "renderSchedule",
-                "_=_": "checkUser" 
+                "/_=_": "checkUser" 
             },
             checkUser: SessionsController.checkUser(),
             loadSignIn: function(){
