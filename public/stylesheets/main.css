@@ -260,18 +260,17 @@ html {
   li {
     color: white;
     display: inline-block;
-    width: 32%;
     height: 200px;
     position: relative;
   }
-  /* line 149, ../sass/main.sass */
+  /* line 148, ../sass/main.sass */
   li p {
     text-align: center;
     position: relative;
     top: 150px;
     color: white;
   }
-  /* line 154, ../sass/main.sass */
+  /* line 153, ../sass/main.sass */
   li a {
     position: absolute;
     top: 0;
@@ -279,44 +278,53 @@ html {
     left: 0;
     right: 0;
   }
-  /* line 160, ../sass/main.sass */
+  /* line 155, ../sass/main.sass */
+  li.navItem {
+    width: 32%;
+    display: inline-block;
+  }
+  /* line 159, ../sass/main.sass */
+  li.scheduleItem {
+    display: block;
+  }
+  /* line 164, ../sass/main.sass */
   li.donate {
     background: url("../img/donate_icon.png") no-repeat;
     background-size: 100%;
   }
-  /* line 160, ../sass/main.sass */
+  /* line 164, ../sass/main.sass */
   li.video {
     background: url("../img/video_icon.png") no-repeat;
     background-size: 100%;
   }
-  /* line 160, ../sass/main.sass */
+  /* line 164, ../sass/main.sass */
   li.locations {
     background: url("../img/locations_icon.png") no-repeat;
     background-size: 100%;
   }
-  /* line 160, ../sass/main.sass */
+  /* line 164, ../sass/main.sass */
   li.massage {
     background: url("../img/massage_icon.png") no-repeat;
     background-size: 100%;
   }
-  /* line 160, ../sass/main.sass */
+  /* line 164, ../sass/main.sass */
   li.message {
     background: url("../img/message_icon.png") no-repeat;
     background-size: 100%;
   }
-  /* line 160, ../sass/main.sass */
+  /* line 164, ../sass/main.sass */
   li.schedule {
     background: url("../img/schedule_icon.png") no-repeat;
     background-size: 100%;
   }
-  /* line 160, ../sass/main.sass */
+  /* line 164, ../sass/main.sass */
   li.yoga {
     background: url("../img/yoga_icon.png") no-repeat;
     background-size: 100%;
   }
 }
 @media screen and (min-height: 800px) {
-  /* line 165, ../sass/main.sass */
+  /* line 169, ../sass/main.sass */
   footer {
     position: absolute;
     bottom: 0;
@@ -325,26 +333,26 @@ html {
   }
 }
 @media screen and (max-width: 1024px) {
-  /* line 174, ../sass/main.sass */
+  /* line 178, ../sass/main.sass */
   header {
     width: 100%;
     padding: 10px 0 10px;
   }
 
-  /* line 178, ../sass/main.sass */
+  /* line 182, ../sass/main.sass */
   header h1 {
     font-size: 1.5em;
     display: block;
   }
 
-  /* line 182, ../sass/main.sass */
+  /* line 186, ../sass/main.sass */
   .launchLogo {
     margin: 50px auto 50px;
     width: 200px;
     height: 200px;
   }
 
-  /* line 187, ../sass/main.sass */
+  /* line 191, ../sass/main.sass */
   #login {
     font-size: 1em;
     padding: 10px 2.5% 10px 2.5%;
@@ -355,13 +363,13 @@ html {
     box-shadow: #4f5673 0 8px 0;
   }
 
-  /* line 194, ../sass/main.sass */
+  /* line 198, ../sass/main.sass */
   footer {
     width: 96%;
     padding: 3%;
   }
 
-  /* line 198, ../sass/main.sass */
+  /* line 202, ../sass/main.sass */
   footer p {
     width: 100%;
   }
@@ -387,36 +395,36 @@ html {
   }
 }
 @media screen and (max-width: 400px) {
-  /* line 205, ../sass/main.sass */
+  /* line 209, ../sass/main.sass */
   .mobile {
     display: inline-block;
   }
 
-  /* line 208, ../sass/main.sass */
+  /* line 212, ../sass/main.sass */
   .nonMobile {
     display: none;
   }
 
-  /* line 211, ../sass/main.sass */
+  /* line 215, ../sass/main.sass */
   header {
     margin: 0;
     padding: 10px 0 10px;
     width: 100%;
   }
 
-  /* line 216, ../sass/main.sass */
+  /* line 220, ../sass/main.sass */
   header h1 {
     font-size: 1.5em;
   }
 
-  /* line 219, ../sass/main.sass */
+  /* line 223, ../sass/main.sass */
   .launchLogo {
     margin: 25px auto 20px auto;
     width: 200px;
     height: 200px;
   }
 
-  /* line 224, ../sass/main.sass */
+  /* line 228, ../sass/main.sass */
   #login {
     font-size: 1em;
     padding: 5%;
@@ -447,7 +455,7 @@ html {
     margin-right: 5px;
   }
 
-  /* line 233, ../sass/main.sass */
+  /* line 237, ../sass/main.sass */
   li {
     font-size: 0.58333em;
     line-height: 2.57143em;

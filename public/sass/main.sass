@@ -143,7 +143,6 @@ $base-line-height: 36px
   li
     color: white
     display: inline-block
-    width: 32%
     height: 200px
     position: relative
     p
@@ -153,7 +152,12 @@ $base-line-height: 36px
       color: white
     a
       +stretch
-      
+    &.navItem
+      width: 32%
+      display: inline-block
+    
+    &.scheduleItem
+      display: block
       
 
     @each $class in $nav-classes

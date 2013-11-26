@@ -22,7 +22,7 @@ define([
                 "nav": "loadNav",
                 "logout": "logout",
                 "nav/schedule": "renderSchedule",
-                "/_=_": "checkUser" 
+                "#_=_": "checkUser" 
             },
             checkUser: SessionsController.checkUser(),
             loadSignIn: function(){
@@ -30,7 +30,7 @@ define([
                 $('.container').html($('#signIn').html());
             },
             loadNav: function(){
-            	SessionsController.navLoggedIn();
+            	SessionsController.loggedIn();
                 $('.container').html($('#navTemplate').html());
                 $('li').on('click', 'a', function(e){
                     e.preventDefault();

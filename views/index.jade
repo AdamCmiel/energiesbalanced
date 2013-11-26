@@ -38,7 +38,7 @@ html
       nav.mainNav
         ul
         each url, val in {'Yoga Schedule': 'schedule', 'Massage': 'massage', 'Message Us': 'message', 'Donate': 'donate'}
-          li(class=url)
+          li(class=url).navItem
             a(href=url)
               p= val
     script(type="text/template",id='navLiTemplate')
@@ -54,7 +54,7 @@ html
           li(class=day)= day
       ul.classesTaught
     script(type='text/template',id='classLi')
-      li
+      li.scheduleItem
         .row
           h3.classTitle
             |<%= classTitle %>
@@ -66,7 +66,7 @@ html
           p.classDescription.truncated
             |<%= classDescription %>
     script(type='text/template' id='classTemplate')
-      li
+      li.scheduleItem
         h1 <%= style %> Yoga
         h2 <%= instructor %>
         h3 <%= location %>

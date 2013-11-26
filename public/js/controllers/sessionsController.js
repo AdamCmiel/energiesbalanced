@@ -32,12 +32,11 @@ define([
     	        }
     	},
     	loggedIn: function(){
-			if (!currentUser.get('facebook_id')){
-        alert('notloggedin');
+			/*if (!currentUser.get('facebook_id')){
         Backbone.history.navigate('/', {trigger: true});
-			} else return currentUser;
+			} else*/ return currentUser;
 		},
-		navLoggedIn: function(){
+		/*navLoggedIn: function(){
    	    	if(currentUser){
    	    		Backbone.history.navigate('/');
    	    	};
@@ -45,7 +44,7 @@ define([
    	    logout: function(){
    	    	currentUser = null;
    	    },
-    
+    */
     renderUser: function(){
       currentUserView.render();
     },
