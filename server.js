@@ -24,6 +24,13 @@ mongoose.connect(process.env.MONGOHQ_URL);
 //declare app variable
 var app = express();
 
+//add cross origin headers
+var crossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', config.allowedDomains);
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+}
 
 //middleware stack
 app.configure(function() {
@@ -33,6 +40,7 @@ app.configure(function() {
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(express.static(__dirname+'/public'));
+  app.use(crossDomain);
   app.use(app.router);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
